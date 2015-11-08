@@ -62,4 +62,56 @@ describe Hash do
     end
   end
 
+  describe "#any? for Enumerable" do
+    it "ensure the method returns true for object" do
+      h = { a: 100, b: "wheels", c: 300 }
+      value = h.any?{|key, value| key == :c}
+      expect(value).to eq(true)
+    end
+
+    it "ensure the method returns false for value of nil" do
+      h = {a: 1, b: 2 }
+      value = h.any?{|key, value| (value % 2) == 0 }
+      expect(value).to eq(true)
+    end
+  end
+
+  describe "the #freeze method on Object class" do
+    it "ensure an unfrozen object is duplicated" do
+      a = "a"
+      b = "b".freeze
+      h = { a => 100, b => 200 }
+      object_id = h.key(100).equal? a
+      expect(object_id).to eq(false)
+    end
+
+    it "ensure frozen object is not duplicated" do
+      a = "a"
+      b = "b".freeze
+      h = { a => 100, b => 200 }
+      object_id = h.key(200).equal? b
+      expect(object_id).to eq(true)
+    end
+  end
+
+  describe "#assoc(obj) method" do
+    it "searches through the hash comparing obj with the key using ==" do
+      h = {"colors"  => ["red", "blue", "green"], "letters" => ["a", "b", "c" ]}
+      result = h.assoc("colors")
+      expect(result).to eq(["colors", ["red", "blue", "green"]])
+    end
+
+    it "returns type array" do
+      h = {"colors"  => ["red", "blue", "green"], "letters" => ["a", "b", "c" ]}
+      result = h.assoc("letters")
+      expect(result.class).to eq(Array)
+    end
+
+    it "returns nil if no match is found" do
+      h = {"colors"  => ["red", "blue", "green"], "letters" => ["a", "b", "c" ]}
+      result = h.assoc("countries")
+      expect(result).to eq(nil)
+    end
+  end
+
 end
