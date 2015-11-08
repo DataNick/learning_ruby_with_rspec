@@ -39,6 +39,15 @@ describe Hash do
     end
   end
 
+  describe "#store(key, value) -> value" do
+    it "associates the value given by value with the key given by key" do
+      h = { "a" => 100, "b" => 200 }
+      h.store("c", 455)
+      h.store("b", 300)
+      expect(h).to eq({ "a" => 100, "b" => 300, "c" => 455 })
+    end
+  end
+
   describe "#key; key(value) method to return key" do
     it "returns the key of an occurrence of a given value" do
       h = { a: 100, b: 200, c: 300, d:400 }
