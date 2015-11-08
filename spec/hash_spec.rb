@@ -24,13 +24,24 @@ describe Hash do
 
   end
 
-  describe 'hsh[key] value in hash' do
+  describe "hsh[key] value in hash" do
 
     it "returns value from the key" do
       h1 = { car: "fast", wheels: 4, doors: "four"}
       result = h1[:wheels]
       expect(result).to eq(4)
     end
+
+  end
+
+  describe "key(value) method to return key" do
+
+    it "returns the key of an occurrence of a given value" do
+      h = { a: 100, b: 200, c: 300, d:400 }
+      var = h.key(100)
+      expect(var).to eq(:a)
+    end
+
   end
 
 end
