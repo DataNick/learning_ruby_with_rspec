@@ -42,6 +42,12 @@ describe Hash do
       expect(var).to eq(:a)
     end
 
+    it "returns nil if value is not found" do
+      h = { a: 100, b: 200, c: 300, d:400 }
+      var = h.key(500)
+      expect(var).to eq(nil)
+    end
+
   end
 
 end
