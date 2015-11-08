@@ -114,4 +114,12 @@ describe Hash do
     end
   end
 
+  describe "#clear method" do
+    it "removes all key/value pairs from an hash" do
+      hash = {a: 200, cars: "four", wheels: 4}
+      hash.clear
+      expect(hash).to eq({})
+    end
+  end
+
 end
