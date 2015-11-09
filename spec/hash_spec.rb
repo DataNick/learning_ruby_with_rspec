@@ -2,6 +2,17 @@ require 'spec_helper'
 
 describe Hash do
 
+  describe "Hash constructor" do
+    it "calls a block with hash object and key" do
+      hash = Hash.new{|hash, key| hash[key] = "The key is #{key}"}
+      letter = hash["c"]
+      number = hash[12]
+      expect(letter).to eq("The key is c")
+      expect(number).to eq("The key is 12")
+      expect(hash).to eq({"c" => "The key is c", 12 => "The key is 12"})
+    end
+  end
+
   describe "#== [other hash]" do
     it "returns true if other hash has exact same keys and values" do
       h1 = {b: 3, a: 2}
@@ -119,6 +130,45 @@ describe Hash do
       hash = {a: 200, cars: "four", wheels: 4}
       hash.clear
       expect(hash).to eq({})
+    end
+  end
+
+  describe "#compare_by_identity returns a hash" do
+    it "makes hsh compare its keys by their identity" do
+      hash = {"a" => 100, "b" => "letter", c: "symbol", 12 => "number"}
+      before_compare = hash.compare_by_identity?
+      hash.compare_by_identity
+      after_compare = hash.compare_by_identity?
+      hash[:c] = "rewritting_value"
+      hash[12] = "rewritting_value"
+      hash["a"] = "new_object"
+      hash["b"] = "another_new_object"
+      expect(hash["a"]).to be_nil
+      expect(hash.key(100)).to eq("a")
+      expect(hash.key("new_object")).to eq("a")
+      expect(hash[:c]).to eq("rewritting_value")
+      expect(hash.key("symbol")).to be_nil
+    end
+  end
+
+  describe "#default(key = nil) method" do
+    it "returns the default value" do
+      hash = Hash.new("cars")
+      expect(hash.default).to eq("cars")
+    end
+    it "Returns the the value that would be returned by hsh if key did not exist in hsh." do
+      hash = Hash.new("cars")
+      expect(hash[:c]).to eq("cars")
+      expect(hash).to eq({})
+      expect(hash.default).to eq("cars")
+    end
+  end
+
+  describe "#default = obj returns object" do
+    it "sets value for keys that don't exist" do
+      hash = {a: 12, b: "wheels"}
+      hash.default = "no value"
+      expect(hash[:c]).to eq("no value")
     end
   end
 
