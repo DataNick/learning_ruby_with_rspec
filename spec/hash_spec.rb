@@ -138,7 +138,6 @@ describe Hash do
       hash[:c] = "rewritting_value"
       hash[12] = "rewritting_value"
       hash["a"] = "new_object"
-      hash["b"] = "another_new_object"
       expect(hash["a"]).to be_nil
       expect(hash.key(100)).to eq("a")
       expect(hash.key("new_object")).to eq("a")
@@ -225,8 +224,9 @@ describe Hash do
   describe "#each method" do
     it "returns hash when passing a block" do
       hash = { a: 12, b: "wheels", c: "cars" }
-      result = hash.each{|key, value| puts "#{key} is #{value}"}
-      expect(result).to eq(hash)
+      array = []
+      result = hash.each{ |key, value| array << [key,value] }
+      expect(array).to eq([[:a, 12], [:b, "wheels"], [:c, "cars"]])
       expect(result.class).to eq(Hash)
     end
 
@@ -236,7 +236,6 @@ describe Hash do
       expect(result.class).to eq(Enumerator)
     end
   end
-
 
   describe "#each_pair method" do
     it "calls block once for each key passed in hash" do
@@ -250,6 +249,31 @@ describe Hash do
       hash = { a: 12, b: "wheels", c: "cars" }
       result = hash.each_pair
       expect(result.class).to eq(Enumerator)
+    end
+  end
+
+  describe "#each_key method" do
+    it "calls block for each key in hash" do
+      hash = { "a" => 12, "b" => 24 }
+      array = []
+      result = hash.each_key{|key| array << key}
+      expect(array).to eq(["a", "b"])
+    end
+  end
+
+  describe "#each_value method" do
+    it "calls block once for each key in hash, passing in value as parameter" do
+      array = []
+      hash = {b: 12, c: 3, d: 5}
+      result = hash.each_value{|value| array << value * value}
+      expect(array).to eq([144, 9, 25])
+    end
+  end
+
+  describe "#empty method" do
+    it "returns true if hash contains no key-value pairs" do
+      hash = {}
+      expect(hash.empty?).to eq(true)
     end
   end
 
