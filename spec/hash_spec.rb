@@ -55,7 +55,7 @@ describe Hash do
     end
   end
 
-  describe "#key; key(value) method to return key" do
+  describe "#key; #key(value) method to return key" do
     it "returns the key of an occurrence of a given value" do
       h = { a: 100, b: 200, c: 300, d:400 }
       var = h.key(100)
@@ -283,6 +283,26 @@ describe Hash do
       second_hash = {c: 24, "wheels" => 12}
       result = second_hash.eql?(hash)
       expect(result).to eq(true)
+    end
+  end
+
+  describe "#fetch method" do
+    it "returns a value from the hash for the given key" do
+      hash = {t: "cats", a: "dogs"}
+      result = hash.fetch(:t)
+      expect(result).to eq("cats")
+    end
+
+    it "returns default value for key" do
+      hash = {}
+      result = hash.fetch(2, "value")
+      expect(result).to eq("value")
+    end
+
+    it "returns a block" do
+      hash = {}
+      result = hash.fetch(:a){|value| "checking the #{value}"}
+      expect(result).to eq("checking the a")
     end
   end
 
