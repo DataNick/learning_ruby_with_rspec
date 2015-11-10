@@ -17,18 +17,14 @@ describe Hash do
     it "returns true if other hash has exact same keys and values" do
       h1 = {b: 3, a: 2}
       h2 = {a: 2, b: 3}
-
       result = (h1 == h2)
-
       expect(result).to eq(true)
     end
 
     it "returns false if other hash has different keys and values" do
       h1 = {a: 2, b: 3}
       h2 = {a: 2, c: 3}
-
       result = (h1 == h2)
-
       expect(result).to eq(false)
     end
   end
@@ -203,12 +199,57 @@ describe Hash do
       expect(no_value).to eq(nil)
     end
 
-    it "returns value of block if key is not found" do
+    it "returns result of block if key is not found" do
       h = { "a" => 100, "b" => 200 }
       no_value = h.delete("z") { |el| "#{el} not found" }
       value = h.delete("b") { |el| "#{el} not found" }
       expect(no_value).to eq("z not found")
       expect(value).to eq(200)
+    end
+  end
+
+  describe "#delete_if" do
+    it "returns an enumerator object when no block is called" do
+      h = { "a" => 100, "b" => 200, "c" => 300 }
+      enum = h.delete_if
+      expect(enum.class).to eq(Enumerator)
+    end
+
+    it "returns a hash when a block is passed" do
+      h = { "a" => 100, "b" => 200, "c" => 300 }
+      result = h.delete_if{|key, value| value == 100}
+      expect(result).to eq({ "b" => 200, "c" => 300 })
+    end
+  end
+
+  describe "#each method" do
+    it "returns hash when passing a block" do
+      hash = { a: 12, b: "wheels", c: "cars" }
+      result = hash.each{|key, value| puts "#{key} is #{value}"}
+      expect(result).to eq(hash)
+      expect(result.class).to eq(Hash)
+    end
+
+    it "returns an enumerator object when no block is passed" do
+      hash = { a: 12, b: "wheels", c: "cars" }
+      result = hash.each
+      expect(result.class).to eq(Enumerator)
+    end
+  end
+
+
+  describe "#each_pair method" do
+    it "calls block once for each key passed in hash" do
+      hash = { a: 12, b: "wheels", c: "cars" }
+      result = hash.each{|key, value| puts "#{key} is #{value}"}
+      expect(result).to eq(hash)
+      expect(result.class).to eq(Hash)
+    end
+
+    it "returns an enumerator object when no block is passed" do
+      hash = { a: 12, b: "wheels", c: "cars" }
+      result = hash.each_pair
+      expect(result.class).to eq(Enumerator)
     end
   end
 
