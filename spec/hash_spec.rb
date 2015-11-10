@@ -373,5 +373,12 @@ describe Hash do
     end
   end
 
+  describe "#invert" do
+    it "returns a new hash using original hash's values as keys and the keys as values" do
+      hash = {c: "cars", "s" => 12, 12 => "wheels"}
+      inverted = hash.invert
+      expect(inverted).to eq({"cars" => :c, 12 => "s", "wheels" => 12})
+    end
+  end
 
 end
