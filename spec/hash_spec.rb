@@ -69,6 +69,14 @@ describe Hash do
     end
   end
 
+  describe "#key?(key) method" do
+    it "returns true if given key is present in hash" do
+      hash = {"a" => 12, "sea" => 23, "dee" => 34}
+      key = hash.key?("a")
+      expect(key).to eq(true)
+    end
+  end
+
   describe "#any? for Enumerable" do
     it "ensure the method returns true for object" do
       h = { a: 100, b: "wheels", c: 300 }
