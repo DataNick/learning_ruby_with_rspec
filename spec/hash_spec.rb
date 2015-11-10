@@ -306,4 +306,11 @@ describe Hash do
     end
   end
 
+  describe "#flatten" do
+    it "returns a one-dimensional array" do
+      hash = {:a => 12, :b => "cars", :c => "wheels"}
+      array = hash.flatten
+      expect(array).to eq([:a, 12, :b, "cars", :c, "wheels"])
+    end
+  end
 end
