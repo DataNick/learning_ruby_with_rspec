@@ -83,7 +83,7 @@ describe Hash do
     end
   end
 
-  describe "the #freeze method on Object class" do
+  describe "#freeze method on Object class" do
     it "ensure an unfrozen object is duplicated" do
       a = "a"
       b = "b".freeze
@@ -121,6 +121,14 @@ describe Hash do
     end
   end
 
+  describe "#flatten" do
+    it "returns a one-dimensional array" do
+      hash = {:a => 12, :b => "cars", :c => "wheels"}
+      array = hash.flatten
+      expect(array).to eq([:a, 12, :b, "cars", :c, "wheels"])
+    end
+  end
+
   describe "#clear method" do
     it "removes all key/value pairs from an hash" do
       hash = {a: 200, cars: "four", wheels: 4}
@@ -151,6 +159,7 @@ describe Hash do
       hash = Hash.new("cars")
       expect(hash.default).to eq("cars")
     end
+
     it "Returns the the value that would be returned by hsh if key did not exist in hsh." do
       hash = Hash.new("cars")
       expect(hash[:c]).to eq("cars")
@@ -306,20 +315,22 @@ describe Hash do
     end
   end
 
-  describe "#flatten" do
-    it "returns a one-dimensional array" do
-      hash = {:a => 12, :b => "cars", :c => "wheels"}
-      array = hash.flatten
-      expect(array).to eq([:a, 12, :b, "cars", :c, "wheels"])
-    end
-  end
-
   describe "#has_key?(key)" do
     it "returns a boolean" do
       hash = {a: 12, b: 15, c: 54}
       result = hash.has_key?(:a)
       expect(result).to eq(true)
       expect(hash.has_key?(:s)).to eq(false)
+    end
+  end
+
+  describe "#include?(key)" do
+    it "returns true if a given key is present in hash" do
+      hash = {a: 12, cats: "four"}
+      key = hash.include?(:a)
+      no_key = hash.include?(:dogs)
+      expect(key).to eq(true)
+      expect(no_key).to eq(false)
     end
   end
 
@@ -346,13 +357,21 @@ describe Hash do
     end
   end
 
-  describe "#include?(key)" do
-    it "returns true if a given key is present in hash" do
-      hash = {a: 12, cats: "four"}
-      key = hash.include?(:a)
-      no_key = hash.include?(:dogs)
-      expect(key).to eq(true)
-      expect(no_key).to eq(false)
+  describe "#to_s method" do
+    it "wraps hash inside a string" do
+      hash = {a: 12, b: 15, c: 54}
+      string = hash.to_s
+      expect(string).to eq("{:a=>12, :b=>15, :c=>54}")
     end
   end
+
+  describe "#inspect method" do
+    it "returns contents of hash in string form" do
+      hash = {a: 12, b: 15, c: 54}
+      string = hash.inspect
+      expect(string).to eq("{:a=>12, :b=>15, :c=>54}")
+    end
+  end
+
+
 end
