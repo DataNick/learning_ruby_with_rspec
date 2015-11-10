@@ -319,6 +319,7 @@ describe Hash do
       hash = {a: 12, b: 15, c: 54}
       result = hash.has_key?(:a)
       expect(result).to eq(true)
+      expect(hash.has_key?(:s)).to eq(false)
     end
   end
 end
