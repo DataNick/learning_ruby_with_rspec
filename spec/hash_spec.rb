@@ -403,4 +403,12 @@ describe Hash do
     end
   end
 
+  describe "#keys" do
+    it "returns an array of only the keys" do
+      hash = {"a" => 23, "sea" => 12, dee: "cars", :eff => "trees"}
+      array = hash.keys
+      expect(array).to eq(["a", "sea", :dee, :eff])
+    end
+  end
+
 end
