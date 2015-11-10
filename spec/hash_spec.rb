@@ -419,4 +419,12 @@ describe Hash do
     end
   end
 
+  describe "#member?()key" do
+    it "returns true if given key is present in hash" do
+      hash = {a: 12, b: 16, c: 87}
+      member = hash.member?(:d)
+      expect(member).to eq(false)
+    end
+  end
+
 end
