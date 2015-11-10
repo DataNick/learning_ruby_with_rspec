@@ -172,4 +172,15 @@ describe Hash do
     end
   end
 
+  describe "#default_proc returns an object" do
+    it "returns block if block invoked with hash constructor" do
+      h = Hash.new {|h,k| h[k] = k*k }
+      p = h.default_proc
+      a = []
+      p.call(a,2)
+      p.call(a,5)
+      expect(a).to eq([nil, nil, 4, nil, nil, 25])
+    end
+  end
+
 end
