@@ -277,4 +277,13 @@ describe Hash do
     end
   end
 
+  describe "#eql? method" do
+    it "returns true if two hashes contain same content" do
+      hash = {"wheels" => 12, c: 24}
+      second_hash = {c: 24, "wheels" => 12}
+      result = second_hash.eql?(hash)
+      expect(result).to eq(true)
+    end
+  end
+
 end
