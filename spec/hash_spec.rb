@@ -381,4 +381,18 @@ describe Hash do
     end
   end
 
+  describe "#keep_if{|key,value| block}" do
+    it "deletes every key-value pair from hsh for which block evaluates to false" do
+      hash = {a: 12, b: 2, c: 5, d: 25}
+      over_ten = hash.keep_if{|key, value| value > 10 }
+      expect(over_ten).to eq({a: 12, d: 25})
+    end
+
+    it "returns an enumerator if evaluated without a block" do
+      hash = {a: 12, b: 2, c: 5, d: 25}
+      enum = hash.keep_if
+      expect(enum.class).to eq(Enumerator)
+    end
+  end
+
 end
