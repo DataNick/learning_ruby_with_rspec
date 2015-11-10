@@ -194,4 +194,22 @@ describe Hash do
     end
   end
 
+  describe "#delete(key) returns value" do
+    it "returns value of deleted key or nil if key is not found" do
+      h = {a: 12, b: 14, c: 16}
+      value = h.delete(:a)
+      no_value = h.delete(:d)
+      expect(value).to eq(12)
+      expect(no_value).to eq(nil)
+    end
+
+    it "returns value of block if key is not found" do
+      h = { "a" => 100, "b" => 200 }
+      no_value = h.delete("z") { |el| "#{el} not found" }
+      value = h.delete("b") { |el| "#{el} not found" }
+      expect(no_value).to eq("z not found")
+      expect(value).to eq(200)
+    end
+  end
+
 end
