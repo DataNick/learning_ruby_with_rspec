@@ -349,8 +349,8 @@ describe Hash do
   describe "#include?(key)" do
     it "returns true if a given key is present in hash" do
       hash = {a: 12, cats: "four"}
-      key = hash.has_key?(:a)
-      no_key = hash.has_key?(:dogs)
+      key = hash.include?(:a)
+      no_key = hash.include?(:dogs)
       expect(key).to eq(true)
       expect(no_key).to eq(false)
     end
