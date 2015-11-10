@@ -183,4 +183,15 @@ describe Hash do
     end
   end
 
+  describe "#default_proc= proc_object" do
+    it "returns the proc object" do
+      h = Hash.new {|h,k| h[k] = "The key is #{k}" }
+      h.default_proc = proc do |hash, key|
+        hash[key] = "The key in the proc is #{key}"
+      end
+      expect(h[3]).to eq("The key in the proc is 3")
+      expect(h["wheels"]).to eq("The key in the proc is wheels")
+    end
+  end
+
 end
