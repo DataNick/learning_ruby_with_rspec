@@ -313,4 +313,12 @@ describe Hash do
       expect(array).to eq([:a, 12, :b, "cars", :c, "wheels"])
     end
   end
+
+  describe "#has_key?(key)" do
+    it "returns a boolean" do
+      hash = {a: 12, b: 15, c: 54}
+      result = hash.has_key?(:a)
+      expect(result).to eq(true)
+    end
+  end
 end
