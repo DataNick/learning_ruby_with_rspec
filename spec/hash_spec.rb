@@ -411,4 +411,12 @@ describe Hash do
     end
   end
 
+  describe "#length" do
+    it "returns the number of key-value pairs in hash" do
+      hash = {"a" => 12, "b" => 24, d: 45}
+      length = hash.length
+      expect(length).to eq(3)
+    end
+  end
+
 end
