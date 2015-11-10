@@ -322,4 +322,27 @@ describe Hash do
       expect(hash.has_key?(:s)).to eq(false)
     end
   end
+
+  describe "#has_value?" do
+    it "returns a boolean" do
+      hash = {a: 12, b: 15, c: 54}
+      result = hash.has_value?(54)
+      expect(result).to eq(true)
+    end
+  end
+
+  describe "#hash" do
+    it "computes a hash-code as a fixnum" do
+      hash = {a: 12, b: 15, c: 54}
+      fixnum = hash.hash
+      expect(fixnum.class).to eq(Fixnum)
+    end
+
+    it "returns same hash-code with two hashes having same content" do
+      hash = {a: 12, b: 15, c: 54}
+      second_hash = {c: 54, a: 12, b: 15}
+      result = hash.hash == second_hash.hash
+      expect(result).to eq(true)
+    end
+  end
 end
