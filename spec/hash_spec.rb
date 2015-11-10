@@ -427,4 +427,20 @@ describe Hash do
     end
   end
 
+  describe "#merge" do
+    it "returns a new hash containing contents of other_hash" do
+      hash = {a: 12, b: 15, c: 76, t: 55}
+      other_hash = {x: 54, t: 65, z: 6543}
+      merged = hash.merge(other_hash)
+      expect(merged).to eq({a: 12, b: 15, c: 76, t: 65, x: 54, z: 6543})
+    end
+
+    it "value for each duplicate key is determined by calling the block" do
+      hash = {a: 12, b: 15, c: 76, t: 55}
+      other_hash = {x: 54, t: 65, z: 6543}
+      merged = hash.merge(other_hash){|key, old_value, new_value| old_value - new_value}
+      expect(merged).to eq({a: 12, b: 15, c: 76, t: -10, x: 54, z: 6543})
+    end
+  end
+
 end
