@@ -518,10 +518,14 @@ describe Hash do
     end
   end
 
-  # describe "#to_h" do
-  #   it "" do
-  #   end
-  # end
+  describe "#to_h" do
+    it "returns Self" do
+      hash = {a: 2, b: 43, c: 35}
+      same_hash = hash.to_h
+      result = hash == same_hash
+      expect(result).to eq(true)
+    end
+  end
 
   # describe "#to_hash" do
   #   it "" do
