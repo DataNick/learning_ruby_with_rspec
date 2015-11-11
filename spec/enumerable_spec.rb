@@ -10,4 +10,11 @@ describe Enumerable do
     end
   end
 
+  describe "any?{|obj| block}" do
+    it "returns true if the block ever returns a value other than false or nil" do
+      array = %w[carson leno obrien meyers].any?{|obj| obj.chars.first == "o"}
+      expect(array).to eq(true)
+    end
+  end
+
 end
