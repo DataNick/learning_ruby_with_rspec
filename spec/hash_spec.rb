@@ -541,10 +541,13 @@ describe Hash do
     end
   end
 
-  # describe "#value?" do
-  #   it "" do
-  #   end
-  # end
+  describe "#value?" do
+    it "returns true if given value is present for some key in hash" do
+      hash = {a: 2, d: 14, e: 54}
+      result = hash.value?(54)
+      expect(result).to eq(true)
+    end
+  end
 
   # describe "#values" do
   #   it "" do
