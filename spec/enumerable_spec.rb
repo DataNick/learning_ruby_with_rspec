@@ -54,4 +54,21 @@ describe Enumerable do
     end
   end
 
+  describe "#cycle(n){|obj| block}" do
+    it "calls block n times or until nil is given" do
+      array = [1,2,3,4].cycle(2){|x| x + x}
+      expect(array).to eq(nil)
+    end
+
+    it "returns nil/nothing if collection is empty" do
+      array = [1,2,3,4].cycle(0){|x| x + x}
+      expect(array).to eq(nil)
+    end
+
+    it "returns nothing if non-positive number is given" do
+      array = [].cycle(0){|x| x + x}
+      expect(array).to eq(nil)
+    end
+  end
+
 end
