@@ -549,14 +549,17 @@ describe Hash do
     end
   end
 
-  # describe "#values" do
-  #   it "" do
-  #   end
-  # end
+  describe "#values" do
+    it "returns an array of all the values in a hash" do
+      hash = {a: 12, b: 34, c: 45, d: 5}
+      array = hash.values
+      expect(array).to eq([12, 34, 45, 5])
+    end
+  end
 
-  # describe "#values_at" do
-  #   it "" do
-  #   end
-  # end
+  describe "#values_at" do
+    it "" do
+    end
+  end
 
 end
