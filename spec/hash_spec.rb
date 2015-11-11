@@ -470,4 +470,13 @@ describe Hash do
     end
   end
 
+  describe "#replace" do
+    it "replaces contents of hash with contents of another hash" do
+      hash = {a: 12, b: "three", f: "trees"}
+      other_hash = {c: "sea", dee: "cars"}
+      result = hash.replace(other_hash)
+      expect(result).to eq({c: "sea", dee: "cars"})
+    end
+  end
+
 end
