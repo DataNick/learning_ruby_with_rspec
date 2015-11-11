@@ -557,8 +557,11 @@ describe Hash do
     end
   end
 
-  describe "#values_at" do
-    it "" do
+  describe "#values_at(key,...)" do
+    it "returns array containing values associated with given keys -- #select" do
+      hash = {a: 23, b: 45, c: 65}
+      result = hash.values_at(:a, :c)
+      expect(result).to eq([23, 65])
     end
   end
 
