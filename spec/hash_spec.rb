@@ -443,4 +443,12 @@ describe Hash do
     end
   end
 
+  describe "#rassoc(obj)" do
+    it "Searches through the hash comparing obj with the value using ==. Returns the first key-value pair (two-element array) that matches." do
+      hash = {1=> "one", 2 => "two", three: "three", ii: "two"}
+      array = hash.rassoc("two")
+      expect(array).to eq([2, "two"])
+    end
+  end
+
 end
