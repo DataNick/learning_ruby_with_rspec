@@ -479,4 +479,57 @@ describe Hash do
     end
   end
 
+  describe "#select" do
+    it "returns a new hash consisting of entries for which the block returns true" do
+      hash = {"b" => 1200, "a" => 344, 2 => 53, a: 12, b: "three", f: "trees"}
+      selected = hash.select{|key, value| value % 2 == 0}
+      expect(selected).to eq({"b" => 1200, "a" => 344, a: 12})
+    end
+  end
+
+  # describe "#shift" do
+  #   it "" do
+  #   end
+  # end
+
+  # describe "#size" do
+  #   it "" do
+  #   end
+  # end
+
+  # describe "#to_a" do
+  #   it "" do
+  #   end
+  # end
+
+  # describe "#to_h" do
+  #   it "" do
+  #   end
+  # end
+
+  # describe "#to_hash" do
+  #   it "" do
+  #   end
+  # end
+
+  # describe "#update" do
+  #   it "" do
+  #   end
+  # end
+
+  # describe "#value?" do
+  #   it "" do
+  #   end
+  # end
+
+  # describe "#values" do
+  #   it "" do
+  #   end
+  # end
+
+  # describe "#values_at" do
+  #   it "" do
+  #   end
+  # end
+
 end
