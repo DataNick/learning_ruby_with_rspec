@@ -532,10 +532,14 @@ describe Hash do
   #   end
   # end
 
-  # describe "#update" do
-  #   it "" do
-  #   end
-  # end
+  describe "#update" do
+    it "adds contents of other_hash to hash" do
+      hash = {a: 12, b: 14, c: 5}
+      other_hash = {a: 2, d: 14, e: 54}
+      result = hash.update(other_hash){|key, old_value, new_value| new_value}
+      expect(result).to eq({a:2, b: 14, c: 5, d: 14, e: 54})
+    end
+  end
 
   # describe "#value?" do
   #   it "" do
