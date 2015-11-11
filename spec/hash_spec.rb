@@ -487,6 +487,14 @@ describe Hash do
     end
   end
 
+  describe "#values_at(key,...)" do
+    it "returns array containing values associated with given keys -- #select" do
+      hash = {a: 23, b: 45, c: 65}
+      result = hash.values_at(:a, :c)
+      expect(result).to eq([23, 65])
+    end
+  end
+
   describe "#shift" do
     it "removes key-value pair from hash and returns a two-item array [key, value]" do
       hash = {"b" => 1200, "a" => 344, 2 => 53, a: 12, b: "three", f: "trees"}
@@ -554,14 +562,6 @@ describe Hash do
       hash = {a: 12, b: 34, c: 45, d: 5}
       array = hash.values
       expect(array).to eq([12, 34, 45, 5])
-    end
-  end
-
-  describe "#values_at(key,...)" do
-    it "returns array containing values associated with given keys -- #select" do
-      hash = {a: 23, b: 45, c: 65}
-      result = hash.values_at(:a, :c)
-      expect(result).to eq([23, 65])
     end
   end
 
