@@ -30,4 +30,11 @@ describe Enumerable do
     end
   end
 
+  describe "#collect_concat {|obj| block} or #flat_map" do
+    it "returns new array" do
+      concat = [["a"], ["b"], ["c"]].collect_concat{|obj| obj + [100]}
+      expect(concat).to eq(["a", 100, "b", 100, "c", 100])
+    end
+  end
+
 end
