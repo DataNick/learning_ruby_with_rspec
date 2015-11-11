@@ -37,4 +37,21 @@ describe Enumerable do
     end
   end
 
+  describe "#count" do
+    it "returns number of items in enum through enumeration" do
+      counted = [1, 2, 2, 3, 3, 3, 3].count
+      expect(counted).to eq(7)
+    end
+
+    it "when argument is given, returns number of items in enum that are equal to item" do
+      counted = [1, 2, 2, 3, 3, 3, 3].count(3)
+      expect(counted).to eq(4)
+    end
+
+    it "returns number of elements yielding a true value" do
+      counted = [1, 2, 2, 3, 3, 3, 3].count{|x| x > 1}
+      expect(counted).to eq(6)
+    end
+  end
+
 end
