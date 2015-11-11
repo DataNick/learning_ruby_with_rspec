@@ -462,4 +462,12 @@ describe Hash do
     end
   end
 
+  describe "#reject" do
+    it "returns a new hash consisting of entries for which the block returns false." do
+      hash = {"b" => 1200, "a" => 344, 2 => 53}
+      result = hash.reject{|key, value| key.class == Fixnum}
+      expect(result).to eq({"b" => 1200, "a" => 344})
+    end
+  end
+
 end
