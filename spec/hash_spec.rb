@@ -487,10 +487,20 @@ describe Hash do
     end
   end
 
-  # describe "#shift" do
-  #   it "" do
-  #   end
-  # end
+  describe "#shift" do
+    it "removes key-value pair from hash and returns a two-item array [key, value]" do
+      hash = {"b" => 1200, "a" => 344, 2 => 53, a: 12, b: "three", f: "trees"}
+      shift = hash.shift
+      expect(shift).to eq(["b", 1200])
+      expect(hash).to eq({"a" => 344, 2 => 53, a: 12, b: "three", f: "trees"})
+    end
+
+    it "returns default value" do
+      hash = Hash.new("cats")
+      shift = hash.shift
+      expect(shift).to eq("cats")
+    end
+  end
 
   # describe "#size" do
   #   it "" do
