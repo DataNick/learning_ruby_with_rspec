@@ -502,10 +502,13 @@ describe Hash do
     end
   end
 
-  # describe "#size" do
-  #   it "" do
-  #   end
-  # end
+  describe "#size" do
+    it "returns number of key-value pairs" do
+      hash = {a: 12, b: 18, c: 99, "a" => "three"}
+      size = hash.size
+      expect(size).to eq(4)
+    end
+  end
 
   # describe "#to_a" do
   #   it "" do
