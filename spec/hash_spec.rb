@@ -510,10 +510,13 @@ describe Hash do
     end
   end
 
-  # describe "#to_a" do
-  #   it "" do
-  #   end
-  # end
+  describe "#to_a" do
+    it "converts hash to nested key-value [key, value] arrays" do
+      hash = {a: 2, b: 43, c: 35}
+      array = hash.to_a
+      expect(array).to eq([[:a, 2], [:b, 43], [:c, 35]])
+    end
+  end
 
   # describe "#to_h" do
   #   it "" do
