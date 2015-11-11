@@ -17,4 +17,17 @@ describe Enumerable do
     end
   end
 
+  # describe "#chunk{|elt|block}" do
+  #   it "" do
+  #   end
+  # end
+
+  describe "#collect" do
+    it "returns a new array with the results of running block once for every element in enum" do
+      array = []
+      collection = [1,2,4,5,6].collect{|x| if x%2 == 0 then array.push(x) end}
+      expect(array).to eq([2, 4, 6])
+    end
+  end
+
 end
