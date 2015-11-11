@@ -451,4 +451,15 @@ describe Hash do
     end
   end
 
+  describe "#rehash" do
+    it "rebuilds the hash based on the current hash values for each key" do
+      a = ["a", "b"]
+      b = ["x", "v"]
+      hash = {a => "wheels", b => "check"}
+      a[1] = "toast"
+      rehash = hash.rehash
+      expect(rehash).to eq({["a", "toast"] => "wheels", ["x", "v"] => "check"})
+    end
+  end
+
 end
