@@ -119,4 +119,12 @@ describe Enumerable do
     end
   end
 
+  describe "#each_with_index(args){|item, index| block}" do
+    it "calls block with object and it's index" do
+      hash = Hash.new
+      result = %w(zero one two three four).each_with_index{|obj, i| hash[i] = obj}
+      expect(hash).to eq({0 => "zero", 1 => "one", 2 => "two", 3 => "three", 4 => "four"})
+    end
+  end
+
 end
