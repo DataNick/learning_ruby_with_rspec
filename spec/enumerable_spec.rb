@@ -105,5 +105,12 @@ describe Enumerable do
     end
   end
 
+  describe "#each_entry{|obj| block} --> enum" do
+    it "calls block once for each element in self" do
+      result = [1,2,3,4].each_entry{|x|if x%2 == 0 then p "the key is #{x}" end}
+      expect(result).to eq([1,2,3,4])
+    end
+  end
+
 
 end
