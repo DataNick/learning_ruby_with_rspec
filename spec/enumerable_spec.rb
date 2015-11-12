@@ -112,5 +112,11 @@ describe Enumerable do
     end
   end
 
+  describe "#each_slice(n){|obj| block}" do
+    it "iterates the given block for each slice of n elements" do
+      results = (1..11).each_slice(3) { |a| p a }
+      expect(results).to eq(nil)
+    end
+  end
 
 end
