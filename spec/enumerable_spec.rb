@@ -199,5 +199,13 @@ describe Enumerable do
     end
   end
 
+  describe "#group_by{|obj| block}" do
+    it "groups collection by result of block" do
+      birds = %w(robin bluejay cardinal)
+      sorted = birds.sort
+      result = sorted.group_by{|bird| bird.chars.last}
+      expect(result).to eq({"y" => ["bluejay"], "l" => ["cardinal"], "n" => ["robin"]})
+    end
+  end
 
 end
