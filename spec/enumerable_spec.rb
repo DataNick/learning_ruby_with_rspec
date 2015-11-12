@@ -134,4 +134,16 @@ describe Enumerable do
     end
   end
 
+  describe "#find" do
+    it "for an array, passes in obj and returns first item for which block is not false" do
+      result = [1,2,3,"cats"].find{|x| x == "cats"}
+      expect(result).to eq("cats")
+    end
+
+    it "passes key and value to the block for a hash" do
+      result = {a: 12, b: 15}.find{|key, value| key == :b} #=> [:b, 15]
+      expect(result).to eq([:b, 15])
+    end
+  end
+
 end
