@@ -144,6 +144,13 @@ describe Enumerable do
       result = %w(zero one two three four).each_with_index{|obj, i| hash[i] = obj}
       expect(hash).to eq({0 => "zero", 1 => "one", 2 => "two", 3 => "three", 4 => "four"})
     end
+
+    it "returns only items with index divisible by 2" do
+      array = []
+      result = [1,2,3,4,5,6].each_with_index{|number, index| index%2 == 0 ? array.push(number) : number}
+      expect(array).to eq([1,3,5])
+      expect(result).to eq([1,2,3,4,5,6])
+    end
   end
 
   describe "#each_with_object(obj) {|(*args), memo_obj| block} → obj" do
