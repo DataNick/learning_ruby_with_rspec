@@ -37,6 +37,13 @@ describe Enumerable do
     end
   end
 
+  describe "#flat_map{|obj| block}" do
+    it "returns new array with concatenated results" do
+      result = [[1],[2],[3],[4]].flat_map{|x| x + [100]}
+      expect(result).to eq([1,100,2,100,3,100,4,100])
+    end
+  end
+
   describe "#count" do
     it "returns number of items in enum through enumeration" do
       counted = [1, 2, 2, 3, 3, 3, 3].count
@@ -178,5 +185,7 @@ describe Enumerable do
       expect(result.class).to eq(Array)
     end
   end
+
+
 
 end
