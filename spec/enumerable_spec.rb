@@ -208,4 +208,13 @@ describe Enumerable do
     end
   end
 
+  describe "#include?" do
+    it "returns boolean" do
+      var_f = (1..10).include?(12)
+      var_t = (1..10).include?(10)
+      expect(var_f).to eq(false)
+      expect(var_t).to eq(true)
+    end
+  end
+
 end
