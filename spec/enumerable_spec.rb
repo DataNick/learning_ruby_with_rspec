@@ -83,6 +83,18 @@ describe Enumerable do
     end
   end
 
+  describe "#find" do
+    it "for an array, passes in obj and returns first item for which block is not false" do
+      result = [1,2,3,"cats"].find{|x| x == "cats"}
+      expect(result).to eq("cats")
+    end
+
+    it "passes key and value to the block for a hash" do
+      result = {a: 12, b: 15}.find{|key, value| key == :b} #=> [:b, 15]
+      expect(result).to eq([:b, 15])
+    end
+  end
+
   describe "#drop(n) -> array" do
     it "drops first n elements from enum and returns rest of collection in an array" do
       result = (1..10).drop(4)
@@ -134,15 +146,10 @@ describe Enumerable do
     end
   end
 
-  describe "#find" do
-    it "for an array, passes in obj and returns first item for which block is not false" do
-      result = [1,2,3,"cats"].find{|x| x == "cats"}
-      expect(result).to eq("cats")
-    end
-
-    it "passes key and value to the block for a hash" do
-      result = {a: 12, b: 15}.find{|key, value| key == :b} #=> [:b, 15]
-      expect(result).to eq([:b, 15])
+  describe "#find_all{|obj|block}" do
+    it "returns array containing all items for which block returns true" do
+      result = %w(cats ti art rails t).find_all{|i| i.size <= 3}
+      expect(result).to eq(%w(ti art t))
     end
   end
 
