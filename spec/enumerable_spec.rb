@@ -186,6 +186,18 @@ describe Enumerable do
     end
   end
 
+  describe "#grep(pattern){|obj|block}" do
+    it "returns an array" do
+      result = [1,2,3,4].grep 1..3
+      expect(result).to eq([1,2,3])
+    end
+
+    it "matching elements passed to block with result stored in output array" do
+      array = []
+      result = [1,2,3,4].grep(1..3){|x| array << x*2}
+      expect(result).to eq([[2,4,6], [2,4,6], [2,4,6]])
+    end
+  end
 
 
 end
