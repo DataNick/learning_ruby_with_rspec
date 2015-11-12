@@ -127,4 +127,11 @@ describe Enumerable do
     end
   end
 
+  describe "#each_with_object(obj) {|(*args), memo_obj| block} → obj" do
+    it "iterates the block for each element with an object given; returns the initially given object" do
+      result = %w(cats dogs hamsters).each_with_object([]){|i, a| a << i*2}
+      expect(result).to eq(["catscats", "dogsdogs", "hamstershamsters"])
+    end
+  end
+
 end
