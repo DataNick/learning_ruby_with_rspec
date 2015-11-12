@@ -90,4 +90,12 @@ describe Enumerable do
     end
   end
 
+  describe "#drop_while{|array| block}" do
+    it "drops elements up to, but not including, the first element for which the block returns false or nil" do
+      array = [1,2,3,4,5,6,7,8]
+      result = array.drop_while{ |i| i < 4 }
+      expect(result).to eq([4,5,6,7,8])
+    end
+  end
+
 end
