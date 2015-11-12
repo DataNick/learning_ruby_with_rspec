@@ -219,6 +219,8 @@ describe Enumerable do
 
   describe "#inject(initial, symbol)" do
     it "combines all elements of enum by applying binary operation, specified by block or symbol" do
+      result = [2, 4, 6, 8].inject(12, :+) #2+4+6+8+12 = 32
+      expect(result).to eq(32)
     end
   end
 
