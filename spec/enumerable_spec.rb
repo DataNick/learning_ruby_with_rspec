@@ -217,4 +217,25 @@ describe Enumerable do
     end
   end
 
+  describe "#inject(initial, symbol)" do
+    it "combines all elements of enum by applying binary operation, specified by block or symbol" do
+    end
+  end
+
+  describe "#inject(sym)" do
+    it "adds all items in enum plus" do
+      result = (1..10).inject(:+)
+      expect(result).to eq(55)
+    end
+  end
+
+  describe "#inject(initial) { |memo, obj| block }" do
+    it "" do
+    end
+  end
+
+  describe "#inject { |memo, obj| block }" do
+    it "" do
+    end
+  end
 end
