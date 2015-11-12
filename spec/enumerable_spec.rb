@@ -98,4 +98,12 @@ describe Enumerable do
     end
   end
 
+  describe "#each_cons(n)" do
+    it "it iterates the given block for each array of consecutive elements" do
+      words = ["cats", "dogs" ,"carts", "john"].each_cons(2){|x|p x}
+      expect(words).to eq(nil)
+    end
+  end
+
+
 end
