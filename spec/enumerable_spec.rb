@@ -153,4 +153,16 @@ describe Enumerable do
     end
   end
 
+  describe "#find_index(value) / #find_index{|obj|block}" do
+    it "compares each entry in enum with value; returns index for first item evaluated as non-false" do
+      result = %w(art call tree house master).find_index("tree")
+      expect(result).to eq(2)
+    end
+
+    it "compares each entry in enum and passes to block; returns index for first item for which value is evaluated as non-false" do
+      result = %w(breaking cast away bad).find_index{|o| o.size > 3 && o.size < 5}
+      expect(result).to eq(1)
+    end
+  end
+
 end
