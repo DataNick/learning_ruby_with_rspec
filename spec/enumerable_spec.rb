@@ -10,7 +10,7 @@ describe Enumerable do
     end
   end
 
-  describe "any?{|obj| block}" do
+  describe "#any?{|obj| block}" do
     it "returns true if the block ever returns a value other than false or nil" do
       array = %w[carson leno obrien meyers].any?{|obj| obj.chars.first == "o"}
       expect(array).to eq(true)
@@ -68,6 +68,25 @@ describe Enumerable do
     it "returns nothing if non-positive number is given" do
       array = [].cycle(0){|x| x + x}
       expect(array).to eq(nil)
+    end
+  end
+
+  describe "#detect(ifnone = nil) { |obj| block } → obj or nil" do
+    it "returns the first for which block is not false" do
+      result = (1..100).detect{|i| i%2 == 0 && i%10 ==0}
+      expect(result).to eq(10)
+    end
+
+    it "returns the first item that is true" do
+      result = (1..15).find{|x| x%2 == 0 && x%4 == 0}
+      expect(result).to eq(4)
+    end
+  end
+
+  describe "#drop(n) -> array" do
+    it "drops first n elements from enum and returns rest of collection in an array" do
+      result = (1..10).drop(4)
+      expect(result).to eq([5, 6, 7, 8, 9, 10])
     end
   end
 
