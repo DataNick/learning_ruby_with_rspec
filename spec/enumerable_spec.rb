@@ -165,4 +165,18 @@ describe Enumerable do
     end
   end
 
+  describe "#first; #first(n)" do
+    it "returns first element in enumerable" do
+      result = (1..100).first
+      expect(result).to eq(1)
+      expect(result.class).to eq(Fixnum)
+    end
+
+    it "returns first n elements in enumerable" do
+      result = (1..100).first(16)
+      expect(result).to eq([1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16])
+      expect(result.class).to eq(Array)
+    end
+  end
+
 end
