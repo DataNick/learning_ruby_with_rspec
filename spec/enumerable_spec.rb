@@ -254,4 +254,17 @@ describe Enumerable do
       expect(result).to eq(55)
     end
   end
+
+  # describe "#lazy" do
+  #   it "returns a lazy enumerator" do
+  #   end
+  # end
+
+  describe "#map{|obj| block}" do
+    it "returns a new array with results of running the block once for each element" do
+      new_array = %w(dogs deers)
+      result = %w(cats cars struck).map{|obj| new_array.push(obj)}
+      expect(result).to eq([["dogs", "deers", "cats", "cars", "struck"], ["dogs", "deers", "cats", "cars", "struck"], ["dogs", "deers", "cats", "cars", "struck"]])
+    end
+  end
 end
