@@ -238,13 +238,20 @@ describe Enumerable do
     end
   end
 
-  describe "#inject(initial) { |memo, obj| block }" do
-    it "" do
+  describe "#inject(initial) { |result, obj| block }" do
+    it "returns the final value of memo which is return value for the method." do
+      hash = [[1, "cars"], [2, "dogs"]].inject({}) do |result, element|
+        result[element.last] = element.first
+        result
+      end
+      expect(hash).to eq({"cars" => 1, "dogs" => 2})
     end
   end
 
-  describe "#inject { |memo, obj| block }" do
-    it "" do
+  describe "#inject { |result, obj| block }" do
+    it "iterates through each element in enum;  the block is passed an accumulator value (memo) and the element" do
+      result = (1..10).inject{|result, element| result += element}
+      expect(result).to eq(55)
     end
   end
 end
