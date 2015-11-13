@@ -267,4 +267,12 @@ describe Enumerable do
       expect(result).to eq([["dogs", "deers", "cats", "cars", "struck"], ["dogs", "deers", "cats", "cars", "struck"], ["dogs", "deers", "cats", "cars", "struck"]])
     end
   end
+
+  describe "#max{|obj| block}" do
+    it "returns the object in enum with the maximum value" do
+      result = %w(albatross dog horse cat deers).max{|a, b| a.length <=> b.length}
+      expect(result).to eq("albatross")
+    end
+  end
+
 end
