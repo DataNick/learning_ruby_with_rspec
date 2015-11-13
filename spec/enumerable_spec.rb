@@ -337,5 +337,12 @@ describe Enumerable do
     end
   end
 
+  describe "#one?{|obj| block}" do
+    it "returns true if block returns true exactly once" do
+      result = %w(art house fun times).one?{|obj| obj.length == 3}
+      expect(result).to eq(false)
+    end
+  end
+
 
 end
