@@ -351,5 +351,33 @@ describe Enumerable do
     end
   end
 
+  describe "#reduce(initial, sym)" do
+    it "combines all elements in enum by applying a binary operation; block or symbol names a method or operator" do
+      results = (1..5).reduce(1, :+)
+      expect(results).to eq(16)
+    end
+  end
+
+  describe "#reduce(sym)" do
+    it "combines all elements in enum by applying a binary operation" do
+      results = (5..10).reduce(2, :*)
+      expect(results).to eq(302400)
+    end
+  end
+
+  describe "#reduce(initial){|memo, obj| block}" do
+    it "" do
+      results = (5..10).reduce(2){|memo, obj| memo * obj}
+      expect(results).to eq(302400)
+    end
+  end
+
+  describe "#reduce { |memo, obj| block }" do
+    it "returns the value of memo from the block" do
+      results = %w(horse cheetah tiger).inject{|memo, element| memo.length > element.length ? memo : element}
+      expect(results).to eq(results)
+    end
+  end
+
 
 end
