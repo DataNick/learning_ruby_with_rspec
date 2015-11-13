@@ -280,4 +280,11 @@ describe Enumerable do
     end
   end
 
+  describe "#max_by{|obj| block}" do
+    it "returns object in enum that gives max value from block" do
+      result = %w(albatross marks cross you).max_by{|obj| obj.chars.sort.join }
+      expect(result).to eq("you")
+    end
+  end
+
 end
