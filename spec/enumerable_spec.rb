@@ -344,5 +344,12 @@ describe Enumerable do
     end
   end
 
+  describe "#partition{|obj| block}" do
+    it "returns two arrays, the first containing the elements of enum for which block returns true; the second containg elements for which the block returns false" do
+      result = %w(cars tree albatross horses).partition{|obj| obj.length < 5 }
+      expect(result).to eq([["cars", "tree"],["albatross", "horses"]])
+    end
+  end
+
 
 end
