@@ -294,4 +294,16 @@ describe Enumerable do
     end
   end
 
+  describe "#min method" do
+    it "returns obj in enum with min value" do
+      result = %w(cars stuff objects).min
+      expect(result).to eq("cars")
+    end
+
+    it "returns minimum value from the given block" do
+      result = %w(cars stuff objects).min{|a, b| b.length <=> a.length}
+      expect(result).to eq("objects")
+    end
+  end
+
 end
