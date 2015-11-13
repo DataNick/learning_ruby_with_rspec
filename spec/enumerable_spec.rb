@@ -273,6 +273,11 @@ describe Enumerable do
       result = %w(albatross dog horse cat deers).max{|a, b| a.length <=> b.length}
       expect(result).to eq("albatross")
     end
+
+    it "returns max word in list" do
+      result = %w(ant cats zebra).max
+      expect(result).to eq("zebra")
+    end
   end
 
 end
