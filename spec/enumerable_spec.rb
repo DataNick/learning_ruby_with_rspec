@@ -306,4 +306,12 @@ describe Enumerable do
     end
   end
 
+  describe "#min_by{|obj| block}" do
+    it "returns object in enum that gives min value from given block" do
+      result = %w(cars stuff objects).min{|obj| obj.size }
+      expect(result).to eq("cars")
+    end
+  end
+
+
 end
