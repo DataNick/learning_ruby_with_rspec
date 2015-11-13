@@ -287,4 +287,11 @@ describe Enumerable do
     end
   end
 
+  describe "member?(obj)" do
+    it "returns true if any member in enum equals obj" do
+    result = %w(art object grass).member?("grass")
+    expect(result).to eq(true)
+    end
+  end
+
 end
