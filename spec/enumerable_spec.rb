@@ -313,5 +313,16 @@ describe Enumerable do
     end
   end
 
+  describe "#minmax" do
+    it "returns a two element array that contain min and max values from enum collection" do
+      result = %w(albatross cars discuss).minmax
+      expect(result).to eq(["albatross", "discuss"])
+    end
+
+    it "returns two element array that contains the min and max values" do
+      result = %w(albatross cars discuss you).minmax{|a, b| a.chars.sort.join <=> b.chars.sort.join}
+      expect(result).to eq(["albatross", "you"])
+    end
+  end
 
 end
