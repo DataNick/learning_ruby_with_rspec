@@ -325,4 +325,17 @@ describe Enumerable do
     end
   end
 
+  describe "#none?{|obj| block}" do
+    it "returns true if block never returns true for all elements" do
+      result = %w(cars zebra donkey).none?{|obj| obj.length >= 7}
+      expect(result).to eq(true)
+    end
+
+    it "returns false if block ever returns true" do
+      result = %w(art charters running).none?{|obj| obj.length == 3}
+      expect(result).to eq(false)
+    end
+  end
+
+
 end
