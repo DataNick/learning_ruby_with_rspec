@@ -349,6 +349,12 @@ describe Enumerable do
       result = %w(cars tree albatross horses).partition{|obj| obj.length < 5 }
       expect(result).to eq([["cars", "tree"],["albatross", "horses"]])
     end
+
+    it "returns two arrays" do
+      animals = [ {animal: "cat", role: "pet"}, {animal: "dog", role: "pet"}, {animal: "horse", role: "worker"}, {animal: "donkey", role: "worker"}, {animal: "pig", role: "food"}, {animal: "chicken", role: "food"}, {animal: "hamster", role: "pet"}, {animal: "sheep", role: "worker"}]
+      result = animals.partition{|animal| animal[:role] == "pet"}
+      expect(result[0][1]).to eq({animal: "dog", role: "pet"})
+    end
   end
 
   describe "#reduce(initial, sym)" do
