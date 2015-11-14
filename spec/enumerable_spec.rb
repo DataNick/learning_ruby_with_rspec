@@ -393,4 +393,11 @@ describe Enumerable do
     end
   end
 
+  describe "#select{|obj| select}" do
+    it "returns new array with all elements from enum for which block returns true" do
+      result = %w(cats trees horses albatross).select{|word| word.length > 5}
+      expect(result).to eq(%w(horses albatross))
+    end
+  end
+
 end
