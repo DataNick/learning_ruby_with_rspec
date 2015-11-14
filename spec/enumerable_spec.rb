@@ -461,4 +461,14 @@ describe Enumerable do
       expect(result).to eq({"cars" => 0, "race" => 1, "trees" => 2, "davidson" => 3})
     end
   end
+
+  describe "#zip" do
+    it "" do
+      words = %w(cars trees race)
+      result = words.zip([1,2,3], [4,5])
+      expect(result).to eq([["cars", 1, 4], ["trees", 2, 5], ["race", 3, nil]])
+    end
+  end
+
+
 end
