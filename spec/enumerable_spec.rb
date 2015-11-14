@@ -386,4 +386,11 @@ describe Enumerable do
     end
   end
 
+  describe "#reverse_each(*args){|item|block}" do
+    it "builds temporary array and traverses it in reverse order" do
+      result = (1..15).reverse_each{|x| p x if x%2 == 0}
+      expect(result).to eq(1..15)
+    end
+  end
+
 end
