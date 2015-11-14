@@ -379,5 +379,11 @@ describe Enumerable do
     end
   end
 
+  describe "reject" do
+    it "returns a new array for which block returns false" do
+      result = (1..10).reject{|x| x.odd? }
+      expect(result).to eq([2,4,6,8,10])
+    end
+  end
 
 end
