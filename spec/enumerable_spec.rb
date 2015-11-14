@@ -446,6 +446,11 @@ describe Enumerable do
       result = %w(cars racecar mastery knowledge).sort_by{|obj| obj.chars.sort.join}
       expect(result).to eq(%w(racecar cars mastery knowledge))
     end
+
+    it "sorts an array of different types" do
+      result = ["3", 1, "7", "5", 4, "2", 6].sort_by(&:to_i)
+      expect(result).to eq([1,"2","3", 4, "5", 6, "7"])
+    end
   end
 
   describe "#take(n)" do
