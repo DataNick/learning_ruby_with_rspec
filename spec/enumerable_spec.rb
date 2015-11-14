@@ -424,4 +424,10 @@ describe Enumerable do
     end
   end
 
+  describe "#sort_by{|obj| block}" do
+    it "generates an array of tuples containing original collection element and mapped value" do
+      result = %w(cars racecar mastery knowledge).sort_by{|obj| obj.chars.sort.join}
+      expect(result).to eq(%w(racecar cars mastery knowledge))
+    end
+  end
 end
