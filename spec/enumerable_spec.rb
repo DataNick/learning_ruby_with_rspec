@@ -173,6 +173,11 @@ describe Enumerable do
     end
   end
 
+  # describe "#entries(*args)" do
+  #   it "" do
+  #   end
+  # end
+
   describe "#find_all{|obj|block}" do
     it "returns array containing all items for which block returns true" do
       result = %w(cats ti art rails t).find_all{|i| i.size <= 3}
@@ -216,6 +221,11 @@ describe Enumerable do
       array = []
       result = [1,2,3,4].grep(1..3){|x| array << x*2}
       expect(result).to eq([[2,4,6], [2,4,6], [2,4,6]])
+    end
+
+    it "it selects and modifies only those objects which are specified as patterns" do
+      result = [1,2,"hello", true, "magic", "world"].grep(String, &:upcase)
+      expect(result).to eq(["HELLO", "MAGIC", "WORLD"])
     end
   end
 
