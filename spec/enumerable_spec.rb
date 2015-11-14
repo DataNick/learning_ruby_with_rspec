@@ -454,4 +454,11 @@ describe Enumerable do
       expect(hash).to eq({a: 12, cars: "wheels", zed: "alphabet"})
     end
   end
+
+  describe "#to_h" do
+    it "returns a result of interpreting enum as a list of [key, value] pairs" do
+      result = %w(cars race trees davidson).each_with_index.to_h
+      expect(result).to eq({"cars" => 0, "race" => 1, "trees" => 2, "davidson" => 3})
+    end
+  end
 end
