@@ -17,10 +17,16 @@ describe Enumerable do
     end
   end
 
-  # describe "#chunk{|elt|block}" do
-  #   it "" do
-  #   end
-  # end
+  describe "#chunk{|elt|block}" do
+    it "Enumerates over each element, joining them together based on return value of block; consecutive elements returning same value are joined together" do
+      people = [ { :house => 'Targaryen', :name => 'The Mother of Dragons' }, { :house => 'Targaryen', :name => 'Aerys "The Mad King"' }, { :house => 'Lannister', :name => 'Jaime "Kingslayer" Lannister' }, { :house => 'Lannister', :name => 'Cersei Lannister' }, { :house => 'Stark', :name => 'Jon Snow' }, { :house => 'Stark', :name => 'Maester Luwin' }, { :house => 'Stark', :name => 'Ned Start' }]
+      result = people.chunk {|person| person[:house]}.each do |house, members|
+        names = members.map {|m| m[:name]}
+        puts "#{names} swear allegiance to House #{house}."
+      end
+      expect(result).to eq(nil)
+    end
+  end
 
   describe "#collect" do
     it "returns a new array with the results of running block once for every element in enum" do
