@@ -164,6 +164,13 @@ describe Enumerable do
       result = %w(cats dogs hamsters).each_with_object([]){|i, a| a << i*2}
       expect(result).to eq(["catscats", "dogsdogs", "hamstershamsters"])
     end
+
+    it "it takes an array and sets each element as a key with default value" do
+      words = %w(cars race fire wrong)
+      sym = words.map{|word| word.to_sym}
+      result = sym.each_with_object([]).to_h
+      expect(result).to eq({cars: [], race: [], fire: [], wrong: []})
+    end
   end
 
   describe "#find_all{|obj|block}" do
