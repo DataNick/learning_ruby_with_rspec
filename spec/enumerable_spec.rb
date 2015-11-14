@@ -200,7 +200,7 @@ describe Enumerable do
   end
 
   describe "#grep(pattern){|obj|block}" do
-    it "returns an array" do
+    it "returns an array of every element in enum for which pattern === element" do
       result = [1,2,3,4].grep 1..3
       expect(result).to eq([1,2,3])
     end
@@ -428,6 +428,21 @@ describe Enumerable do
     it "generates an array of tuples containing original collection element and mapped value" do
       result = %w(cars racecar mastery knowledge).sort_by{|obj| obj.chars.sort.join}
       expect(result).to eq(%w(racecar cars mastery knowledge))
+    end
+  end
+
+  describe "#take(n)" do
+    it "takes first n elements from array" do
+      result = %w(tree racecar master knee).take(3)
+      expect(result).to eq(%w(tree racecar master))
+    end
+  end
+
+  describe "#take_while{|array| block}" do
+    it "passes elements to the block until nil or false is returned, then stops and returns array of prior elements" do
+      results = ["cars", "race", true, nil, "create" ].take_while{|x| x}
+      #it prints up to nil but returns element(s) prior to nil
+      expect(results).to eq(["cars", "race", true])
     end
   end
 end
