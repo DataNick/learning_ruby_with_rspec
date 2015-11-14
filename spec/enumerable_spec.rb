@@ -412,4 +412,16 @@ describe Enumerable do
     end
   end
 
+  describe "#sort; #sort{|a,b|block}" do
+    it "returns array containing sorted items" do
+      result = %w(cars john trees deer albatross).sort
+      expect(result).to eq(%w(albatross cars deer john trees))
+    end
+
+    it "returns result of block" do
+      result = %w(cars john trees deer albatross).sort{|a, b| a.length <=> b.length}
+      expect(result).to eq(%w(cars john deer trees albatross))
+    end
+  end
+
 end
