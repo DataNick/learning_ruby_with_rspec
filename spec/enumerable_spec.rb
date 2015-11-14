@@ -445,4 +445,13 @@ describe Enumerable do
       expect(results).to eq(["cars", "race", true])
     end
   end
+
+  describe "#to_a" do
+    it "returns array containing items in enum" do
+      array = {a: 12, cars: "wheels", zed: "alphabet"}.to_a
+      hash = array.to_h
+      expect(array).to eq([[:a, 12], [:cars, "wheels"], [:zed, "alphabet"]])
+      expect(hash).to eq({a: 12, cars: "wheels", zed: "alphabet"})
+    end
+  end
 end
