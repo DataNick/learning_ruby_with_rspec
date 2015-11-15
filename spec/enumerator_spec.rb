@@ -55,4 +55,12 @@ describe Enumerator do
     end
   end
 
+  describe "#next" do
+    it "returns the next value in the collection/enumerator" do
+      enum = %w(collect next word from the list).to_enum
+      next_word = enum.next
+      expect(next_word).to eq("collect")
+    end
+  end
+
 end
