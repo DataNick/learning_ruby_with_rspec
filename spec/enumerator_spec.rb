@@ -44,7 +44,14 @@ describe Enumerator do
       enum = %w(cart basket bucket).to_enum :map
       result = enum.each_with_object("collect").to_h
       expect(result).to eq({"cart" => "collect", "basket" => "collect", "bucket" => "collect"})
+    end
+  end
 
+  describe "#inspect" do
+    it "presents a printable version of enum" do
+      enum = [1, 2, 3].to_enum
+      result = enum.first.inspect
+      expect(result).to eq("1")
     end
   end
 
