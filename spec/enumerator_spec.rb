@@ -101,4 +101,13 @@ describe Enumerator do
       expect(size).to eq(nil)
     end
   end
+
+  describe "#with_object(obj)" do
+    it "iterates through a given block with a given object; returns object" do
+      enum = 3.times.to_enum
+      object = enum.with_object("foo")
+      result = object.each {|key, string| p "#{key}: #{string}"}
+      expect(result).to eq("foo")
+    end
+  end
 end
