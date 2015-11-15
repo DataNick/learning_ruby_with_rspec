@@ -31,4 +31,13 @@ describe Enumerator do
     end
   end
 
+  describe "#each_with_index" do
+    it "returns a collection in reverse order" do
+      enum = %w(cart basket bucket).to_enum :map
+      result = enum.each_with_object("collect").to_h
+      expect(result).to eq({"cart" => "collect", "basket" => "collect", "bucket" => "collect"})
+
+    end
+  end
+
 end
