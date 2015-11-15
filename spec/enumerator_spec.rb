@@ -75,5 +75,16 @@ describe Enumerator do
     end
   end
 
-
+  describe "#rewind" do
+    it "returns the enumeration sequence to the start of the collection" do
+      enum = %w(cart bucket collection).to_enum
+      forward = enum.next # =>"cart"
+      forward_again = enum.next # => "bucket"
+      further = enum.next # => "collection"
+      back_to_start = enum.rewind
+      next_again = enum.next
+      expect(further).to eq("collection")
+      expect(next_again).to eq("cart")
+    end
+  end
 end
