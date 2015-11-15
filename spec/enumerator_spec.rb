@@ -20,7 +20,14 @@ describe Enumerator do
       end
       result = fib.first(5)
       expect(result).to eq([1,1,2,3,5])
+    end
+  end
 
+  describe "#each" do
+    it "iterates over block based on how Enumerator is constructed" do
+      enum = %w(cart bucket collect).to_enum #gives an Enumerator object with each as default method
+      result = enum.each_with_index.to_a
+        expect(result).to eq([["cart", 0], ["bucket", 1], ["collect", 2]])
     end
   end
 
