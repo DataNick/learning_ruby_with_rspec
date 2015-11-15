@@ -32,6 +32,14 @@ describe Enumerator do
   end
 
   describe "#each_with_index" do
+    it "returns an array with the element and key position from collection" do
+      enum = %w(cart bucket rails ruby).to_enum :each_with_index
+      first = enum.first
+      expect(first).to eq(["cart", 0])
+    end
+  end
+
+  describe "#each_with_object" do
     it "returns a collection in reverse order" do
       enum = %w(cart basket bucket).to_enum :map
       result = enum.each_with_object("collect").to_h
