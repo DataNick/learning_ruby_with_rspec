@@ -9,4 +9,19 @@ describe Enumerator do
     end
   end
 
+  describe "#new; constructing Enumerable object (Enumerator) from scratch" do
+    it "builds the fibonacci sequence" do
+      fib = Enumerator.new do |y|
+        a = b = 1
+        loop do
+          y << a
+          a, b = b, a + b
+        end
+      end
+      result = fib.first(5)
+      expect(result).to eq([1,1,2,3,5])
+
+    end
+  end
+
 end
