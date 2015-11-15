@@ -63,4 +63,17 @@ describe Enumerator do
     end
   end
 
+  # descirbe "#next_value" do
+  # end
+
+  describe "#peek" do
+    it "returns the value of the next item in collection without moving internal position forward" do
+      enum = %w(cart bucket collect).to_enum
+      next_word = enum.next
+      result = enum.peek
+      expect(result).to eq("bucket")
+    end
+  end
+
+
 end
