@@ -87,4 +87,18 @@ describe Enumerator do
       expect(next_again).to eq("cart")
     end
   end
+
+  describe "#size" do
+    it "returns size of enumerator" do
+      enum = %w(cart bucket collection).to_enum
+      size = enum.each{|x|p x}.size
+      expect(size).to eq(3)
+    end
+
+    it "returns nil if enumerator if calculations not done lazily" do
+      enum = %w(cart bucket collection).to_enum
+      size = enum.size
+      expect(size).to eq(nil)
+    end
+  end
 end
