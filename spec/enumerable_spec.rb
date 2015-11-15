@@ -380,6 +380,7 @@ describe Enumerable do
     end
   end
 
+# reduce takes a collection and drills it down to a single element
   describe "#reduce(initial, sym)" do
     it "combines all elements in enum by applying a binary operation; block or symbol names a method or operator" do
       results = (1..5).reduce(1, :+)
