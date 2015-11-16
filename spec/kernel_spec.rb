@@ -28,4 +28,16 @@ describe Kernel do
     end
   end
 
+  describe "#Hash(arg)" do
+    it "converts args to hash object using #to_hash" do
+      hash = Hash([])
+      expect(hash).to eq({})
+    end
+
+    it "converts args to keys and values in hash object" do
+      values = Hash(pry: :car)
+      expect(values).to eq({:pry => :car})
+    end
+  end
+
 end
