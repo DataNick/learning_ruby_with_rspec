@@ -40,4 +40,22 @@ describe Kernel do
     end
   end
 
+  # describe "#Integer(arg, base = 0)" do
+  #   it "" do
+  #   end
+  # end
+
+  # describe "#Rational(x[,y])" do
+  #   it "" do
+  #   end
+  # end
+
+  describe "#String" do
+    it "returns string object by calling #to_str on arg" do
+      string = String(:car)
+      expect(string).to eq("car")
+    end
+  end
+
+
 end
