@@ -144,6 +144,13 @@ describe Array do
       result = array <=> second
       expect(result).to eq(-1)
     end
+
+    it "returns an array of letters after comparing the first element of array1 with first element of array2 and so on" do
+      array = ["a", "b", "c", "d"]
+      second = ["a","a","b","c"]
+      result = array <=> second
+      expect(result).to eq(1)
+    end
   end
 
 end
