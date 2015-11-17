@@ -70,5 +70,9 @@ describe Array do
   end
 
   describe "ary * str -> new_string" do
+    it "returns a new string with str object appear i-1 times" do
+      array = [1,2,3]*", object, "
+      expect(array).to eq("1, object, 2, object, 3")
+    end
   end
 end
