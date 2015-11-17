@@ -218,10 +218,19 @@ describe Array do
   end
 
   describe "#array[index] = obj" do
-    it "sets the value at index" do
+    it "sets the value/element at index" do
       array = Array.new
       value = array[4]= "cart"
       expect(array).to eq([nil, nil, nil, nil, "cart"])
+    end
+  end
+
+  describe "#array[start,length]" do
+    it "assigns elements beginning at start and continuing for length" do
+      array = Array.new(3, "items")
+      array[2, 3]= ["elements", "elements", "elements"]
+      expect(array).to eq(["items", "items", "elements", "elements", "elements"])
+
     end
   end
 
