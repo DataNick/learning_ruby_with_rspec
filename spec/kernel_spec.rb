@@ -64,7 +64,7 @@ describe Kernel do
 
   describe "#require" do
     it "returns a boolean determining the success of loading a file" do
-      file = require 'array_spec'
+      file = require 'array_spec' #.rb files are loaded as source files
       expect(file).to eq(true)
     end
   end
