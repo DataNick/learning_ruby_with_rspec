@@ -47,8 +47,17 @@ describe Array do
     end
 
     it "returns nil if object cannot become an array" do
-      no_array = Array.try_convert(1)
+      no_array = Array.try_convert(1) #calls to_ary on object
       expect(no_array).to eq(nil)
+    end
+  end
+
+  describe "&" do
+    it "returns a new array containing elements common to both array & new_array" do
+      array = [1,2,3,"cats"]
+      new_array = Array.new(3, "cats")
+      result = array & new_array
+      expect(result).to eq(["cats"])
     end
   end
 
