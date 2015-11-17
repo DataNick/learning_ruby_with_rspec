@@ -208,4 +208,13 @@ describe Array do
       expect(subarray).to eq([3,4,"cart",7,8])
     end
   end
+
+  describe "#slice(range)" do
+    it "returns subarray for range of index" do
+      array = %w(cart collect wheel bucket barrel wind grass)
+      subarray = array.slice(2..5)
+      expect(subarray).to eq(%w(wheel bucket barrel wind))
+    end
+  end
+
 end
