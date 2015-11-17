@@ -250,7 +250,12 @@ describe Array do
     end
   end
 
-  describe "#unshift" do
+  describe "#unshift" do #prepend
+    it "prepends objects to the front of an array" do
+      array = [[1],[2]]
+      array.unshift("collect")
+      expect(array).to eq(["collect", [1], [2]])
+    end
   end
 
   describe "#any?{|obj|block}" do
