@@ -160,6 +160,13 @@ describe Array do
       result = array == second
       expect(result).to eq(true)
     end
+
+    it "returns false if either the number of elements don't match or each position of corresponding elements don't match" do
+      array = [1,2,3]
+      second = [2,1,3]
+      result = array == second
+      expect(result).to eq(false)
+    end
   end
 
 end
