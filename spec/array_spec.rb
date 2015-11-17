@@ -115,4 +115,13 @@ describe Array do
       expect(array).to eq([1,2,3,"cats", "carts"])
     end
   end
+
+  describe "#<=> comparison" do
+    it "returns 1 if first array is greater than second array" do
+      array = [1,2,3]
+      second = [1]
+      result = array <=> second
+      expect(result).to eq(1)
+    end
+  end
 end
