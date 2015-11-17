@@ -57,5 +57,16 @@ describe Kernel do
     end
   end
 
+  # __callee__ → symbol
+  # __dir__ → string
+  # __method__ → symbol
+  # `cmd` → string
+
+  describe "#require" do
+    it "returns a boolean determining the success of loading a file" do
+      file = require 'array_spec'
+      expect(file).to eq(true)
+    end
+  end
 
 end
