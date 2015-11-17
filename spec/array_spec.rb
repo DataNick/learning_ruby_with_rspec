@@ -230,7 +230,15 @@ describe Array do
       array = Array.new(3, "items")
       array[2, 3]= ["elements", "elements", "elements"]
       expect(array).to eq(["items", "items", "elements", "elements", "elements"])
+    end
+  end
 
+  describe "#array[range]" do
+    it "returns a new array by including a subarray of values specified by range" do
+      array = ["cart", 2, nil, true]
+      array[0,0]= ["collect", 25]
+      array[-2]= "no_nil"
+      expect(array).to eq(["collect",25,"cart", 2, "no_nil",true])
     end
   end
 
