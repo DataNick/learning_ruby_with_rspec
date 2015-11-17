@@ -89,4 +89,13 @@ describe Array do
       expect(new_string).to eq("items, joined, items, joined, items")
     end
   end
+
+  describe "array + another_array = new_array" do
+    it "returns a new array by concatenating two or more arrays" do
+      array = Array.new(2, "items")
+      another_array = [1,2,3]
+      result = array + another_array
+      expect(result).to eq(["items", "items", 1, 2, 3])
+    end
+  end
 end
