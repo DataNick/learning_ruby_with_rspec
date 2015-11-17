@@ -1,5 +1,5 @@
 require 'spec_helper'
-# Enumerable mixin provides collection classes with traversal and searching methods, plus ability to sort.
+# Enumerable mixin provides the collection classes with traversal and searching methods, plus ability to sort.
 
 describe Enumerable do
 
