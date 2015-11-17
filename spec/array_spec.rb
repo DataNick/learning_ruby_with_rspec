@@ -200,4 +200,12 @@ describe Array do
       expect(result).to eq("cart")
     end
   end
+
+  describe "#slice(start,length)" do
+    it "returns subarray from start and continuing for length of elements" do
+      array = [1,2,3,4,"cart",7,8,9,10]
+      subarray = array.slice(2,5)
+      expect(subarray).to eq([3,4,"cart",7,8])
+    end
+  end
 end
