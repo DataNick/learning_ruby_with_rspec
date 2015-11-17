@@ -242,4 +242,11 @@ describe Array do
     end
   end
 
+  describe "#any?{|obj|block}" do
+    it "searches the array and returns true if elements match value from block and false otherwise" do
+      array = %w(cart logs command trees one at).any?{|word| word.length < 3}
+      expect(array).to eq(true)
+    end
+  end
+
 end
