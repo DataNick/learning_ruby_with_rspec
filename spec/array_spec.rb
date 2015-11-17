@@ -70,7 +70,7 @@ describe Array do
   end
 
   describe "ary * str -> new_string" do
-    it "returns a new string with str object appear i-1 times" do
+    it "returns a new string with str separated by a given separator" do
       array = [1,2,3]*", object, "
       expect(array).to eq("1, object, 2, object, 3")
     end
@@ -81,6 +81,12 @@ describe Array do
       array = Array.new(3, "object")
       joined = array.join
       expect(joined).to eq("objectobjectobject")
+    end
+
+    it "returns a string separated by a given #join(separator = $)" do
+      array = ["items"]*3
+      new_string = array.join(", joined, ")
+      expect(new_string).to eq("items, joined, items, joined, items")
     end
   end
 end
