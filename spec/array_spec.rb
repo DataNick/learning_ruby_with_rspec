@@ -302,7 +302,7 @@ describe Array do
 
     it "returns first obj that block returns true" do
       array = %w(cart wheel barrel bucket box)
-      result = array.index{|word| word.length > 4}
+      result = array.index{|word| word.length == 5}
       expect(result).to eq(1)
     end
 
@@ -310,6 +310,30 @@ describe Array do
       array = %w(cart wheel barrel bucket box)
       result = array.index.class
       expect(result).to eq(Enumerator)
+    end
+  end
+
+  describe "#rindex(obj)" do
+    it "returns index of last object to == obj" do
+      array = %w(cart tee wheel two two two)
+      result = array.rindex("two")
+      expect(result).to eq(5)
+    end
+  end
+
+  describe "#rindex(obj){|x|block}" do
+    it "begins from the last object that returns true for block and returns last item that returns true" do
+      array = %w(cart tee carts wheel two two two)
+      result = array.rindex{|word| word.length == 5}
+      expect(result).to eq(3)
+    end
+  end
+
+  describe "#rindex" do
+    it "returns an Enumerator object" do
+      array = %w(cart tee carts wheel two two two)
+      result = array.rindex
+      expect(result.class).to eq(Enumerator)
     end
   end
 
