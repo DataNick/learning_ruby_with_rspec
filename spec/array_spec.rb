@@ -185,4 +185,11 @@ describe Array do
     end
   end
 
+  describe "#ary[start,length]" do
+    it "returns subarray for range of elements specified by index" do
+      array = ["cart", "wheel", "selection", "collection"]
+      result = array[0..2]
+      expect(result).to eq(["cart", "wheel", "selection"])
+    end
+  end
 end
