@@ -169,4 +169,11 @@ describe Array do
     end
   end
 
+  describe "#ary[index]" do
+    it "returns element value at given index" do
+      array = [10,11,12,13,14]
+      result = array[2]
+      expect(result).to eq(12)
+    end
+  end
 end
