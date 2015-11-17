@@ -345,7 +345,7 @@ describe Array do
     end
   end
 
-  describe "#collect{|item| block}" do
+  describe "#collect{|item| block} --> new_array" do
     it "returns new array containing values returned by block" do
       collect = %w(cart jug wheel).collect{|word| word.chars[0] == "c"}
       expect(collect).to eq([true, false, false])
@@ -354,6 +354,18 @@ describe Array do
     it "invokes given block once for each element in self" do
       collect = %w(cart jug wheel).collect{|word| word + "!"}
       expect(collect).to eq(%w(cart! jug! wheel!))
+    end
+
+    it "returns an Enumerator" do
+      collect = %w(cart wheel).collect
+      expect(collect.class).to eq(Enumerator)
+    end
+  end
+
+  describe "#collect! --> array" do
+    it "invokes given block once for each element; replacing each element with the value returned by block" do
+      collect = %w(cart wheel).collect!.with_index{|value, index| value[0..index]}
+      expect(collect).to eq(["c","wh"])
     end
   end
 
