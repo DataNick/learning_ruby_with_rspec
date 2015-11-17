@@ -345,4 +345,16 @@ describe Array do
     end
   end
 
+  describe "#collect{|item| block}" do
+    it "returns new array containing values returned by block" do
+      collect = %w(cart jug wheel).collect{|word| word.chars[0] == "c"}
+      expect(collect).to eq([true, false, false])
+    end
+
+    it "invokes given block once for each element in self" do
+      collect = %w(cart jug wheel).collect{|word| word + "!"}
+      expect(collect).to eq(%w(cart! jug! wheel!))
+    end
+  end
+
 end
