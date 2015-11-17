@@ -75,4 +75,12 @@ describe Array do
       expect(array).to eq("1, object, 2, object, 3")
     end
   end
+
+  describe "#join" do
+    it "returns a new string by joining array object with string object" do
+      array = Array.new(3, "object")
+      joined = array.join
+      expect(joined).to eq("objectobjectobject")
+    end
+  end
 end
