@@ -192,4 +192,12 @@ describe Array do
       expect(result).to eq(["cart", "wheel", "selection"])
     end
   end
+
+  describe "#slice(index)" do
+    it "is similar to array[index]" do
+      array = [1,2,3,4,"cart",7,8,9,10]
+      result = array.slice(4)
+      expect(result).to eq("cart")
+    end
+  end
 end
