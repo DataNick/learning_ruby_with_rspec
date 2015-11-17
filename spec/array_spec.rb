@@ -123,5 +123,12 @@ describe Array do
       result = array <=> second
       expect(result).to eq(1)
     end
+
+    it "returns 0 if first and second arrays have same number of elements" do
+      array = ["cart", "bucket", "collect"]
+      second = ["cart", "bucket", "collect"]
+      result = array <=> second
+      expect(result).to eq(0)
+    end
   end
 end
