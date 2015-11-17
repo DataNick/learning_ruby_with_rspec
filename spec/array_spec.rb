@@ -105,6 +105,14 @@ describe Array do
       another_array = [1,2,"dogs"]
       result = array - another_array
       expect(result).to eq([3,4,"cats","mice"])
+      expect(another_array - array).to eq([])
+    end
+  end
+
+  describe "<< pushes/append method" do
+    it "Pushes new object to the end of the array and returns appended array" do
+      array = [1,2,3] << "cats" << "carts"
+      expect(array).to eq([1,2,3,"cats", "carts"])
     end
   end
 end
