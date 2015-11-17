@@ -265,4 +265,14 @@ describe Array do
     end
   end
 
+
+  describe "#assoc(obj) --> new_array or nil" do
+    it "searches an array of arrays, comparing first element from each array for matching obj" do
+      array = [%w(colours red yellow blue), %w(genres romance action comedy), %w(search collect select each)]
+      first_element = array.assoc("colours")
+      expect(first_element).to eq(%w(colours red yellow blue))
+    end
+  end
+
+
 end
