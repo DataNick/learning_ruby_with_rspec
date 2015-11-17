@@ -33,6 +33,11 @@ describe Array do
       array = Array.new(4){|x| x**2}
       expect(array).to eq([0, 1, 4, 9])
     end
+
+    it "returns a new array when second parameter, the same parameter will be the value for array elements" do
+      array = Array.new(4, {})
+      expect(array).to eq([{}, {}, {}, {}])
+    end
   end
 
 end
