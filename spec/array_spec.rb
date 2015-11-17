@@ -137,6 +137,13 @@ describe Array do
       result = array <=> second
       expect(result).to eq(-1)
     end
+
+    it "returns an array of all 1s as less than an array of all 2s" do
+      array = [1,1,1]
+      second = [2,2,2]
+      result = array <=> second
+      expect(result).to eq(-1)
+    end
   end
 
 end
