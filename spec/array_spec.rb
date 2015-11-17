@@ -288,5 +288,17 @@ describe Array do
     end
   end
 
+  describe "#bsearch{|obj|block} --> elem" do
+    it "returns " do
+    end
+  end
+
+  describe "#index(obj) --> int or nil" do
+    it "searches the array and returns the first index in array that fulfills the condition where object is == to obj" do
+      array = %w(cart bucket well collect barrel)
+      result = array.index("bucket")
+      expect(result).to eq(1)
+    end
+  end
 
 end
