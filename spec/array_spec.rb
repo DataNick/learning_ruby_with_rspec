@@ -153,4 +153,13 @@ describe Array do
     end
   end
 
+  describe "#==" do
+    it "returns true if two arrays contain same number of elements and each element is equal to their respective clone in the second array" do
+      array = [1,2,3]
+      second = [1,2,3]
+      result = array == second
+      expect(result).to eq(true)
+    end
+  end
+
 end
