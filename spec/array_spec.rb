@@ -28,6 +28,11 @@ describe Array do
       new_array = Array.new(array)
       expect(new_array).to eq(["carts", "buckets"])
     end
+
+    it "returns a new array(size) with value from block" do
+      array = Array.new(4){|x| x**2}
+      expect(array).to eq([0, 1, 4, 9])
+    end
   end
 
 end
