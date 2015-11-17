@@ -30,13 +30,25 @@ describe Array do
     end
 
     it "returns a new array(size) with value from block" do
-      array = Array.new(4){|x| x**2}
+      array = Array.new(4){|index| index**2}
       expect(array).to eq([0, 1, 4, 9])
     end
 
     it "returns a new array when second parameter, the same parameter will be the value for array elements" do
       array = Array.new(4, {})
       expect(array).to eq([{}, {}, {}, {}])
+    end
+  end
+
+  describe "#try_convert" do
+    it "converts object to array" do
+      array = Array.try_convert(["cats", 1])
+      expect(array).to eq(["cats", 1])
+    end
+
+    it "returns nil if object cannot become an array" do
+      no_array = Array.try_convert(1)
+      expect(no_array).to eq(nil)
     end
   end
 
