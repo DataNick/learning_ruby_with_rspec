@@ -67,12 +67,6 @@ describe Kernel do
       file = require 'array_spec' #.rb files are loaded as source files
       expect(file).to eq(true)
     end
-
-    it "returns a new array with passing in an array object" do
-      array = ["carts", "buckets"]
-      new_array = Array.new(array)
-      expect(new_array).to eq(["carts", "buckets"])
-    end
   end
 
 end

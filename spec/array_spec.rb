@@ -242,6 +242,17 @@ describe Array do
     end
   end
 
+  describe "#push(obj)" do #Append
+    it "appends object(s) to end of array" do
+      array = [1,2,3,4]
+      array.push([5,6,7,8])
+      expect(array).to eq([1,2,3,4,[5,6,7,8]])
+    end
+  end
+
+  describe "#unshift" do
+  end
+
   describe "#any?{|obj|block}" do
     it "searches the array and returns true if elements match value from block and false otherwise" do
       array = %w(cart logs command trees one at).any?{|word| word.length < 3}
