@@ -272,6 +272,20 @@ describe Array do
       first_element = array.assoc("colours")
       expect(first_element).to eq(%w(colours red yellow blue))
     end
+
+    it "returns nil if searching for non-first element in array" do
+      array = [%w(colours red yellow blue), %w(genres romance action comedy), %w(search collect select each)]
+      first_element = array.assoc("action")
+      expect(first_element).to eq(nil)
+    end
+  end
+
+  describe "#at(index)" do
+    it "returns element at index" do
+      array = %w(carts collection barrel bucket)
+      value = array.at(2)
+      expect(value).to eq("barrel")
+    end
   end
 
 
