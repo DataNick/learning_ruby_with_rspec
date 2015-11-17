@@ -21,6 +21,13 @@ describe Array do
       array = Array.new(3, "object")
       expect(array).to eq(["object", "object", "object"])
     end
+
+
+    it "returns a new array with passing in an array object" do
+      array = ["carts", "buckets"]
+      new_array = Array.new(array)
+      expect(new_array).to eq(["carts", "buckets"])
+    end
   end
 
 end
