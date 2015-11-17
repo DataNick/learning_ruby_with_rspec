@@ -217,4 +217,12 @@ describe Array do
     end
   end
 
+  describe "#array[index] = obj" do
+    it "sets the value at index" do
+      array = Array.new
+      value = array[4]= "cart"
+      expect(array).to eq([nil, nil, nil, nil, "cart"])
+    end
+  end
+
 end
