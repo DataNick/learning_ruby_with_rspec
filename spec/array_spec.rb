@@ -130,5 +130,13 @@ describe Array do
       result = array <=> second
       expect(result).to eq(0)
     end
+
+    it "returns -1 if first array is less than second array" do
+      array = [1]
+      second = [1,2,3]
+      result = array <=> second
+      expect(result).to eq(-1)
+    end
   end
+
 end
