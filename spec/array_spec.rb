@@ -305,6 +305,12 @@ describe Array do
       result = array.index{|word| word.length > 4}
       expect(result).to eq(1)
     end
+
+    it "returns an Enumerable object" do
+      array = %w(cart wheel barrel bucket box)
+      result = array.index.class
+      expect(result).to eq(Enumerator)
+    end
   end
 
 end
