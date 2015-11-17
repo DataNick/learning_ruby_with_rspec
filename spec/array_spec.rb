@@ -98,4 +98,13 @@ describe Array do
       expect(result).to eq(["items", "items", 1, 2, 3])
     end
   end
+
+  describe "array - another_array" do
+    it "returns a new array without any items that also appear in another_array" do
+      array = [1,2,3,4,"cats", "dogs", "mice"]
+      another_array = [1,2,"dogs"]
+      result = array - another_array
+      expect(result).to eq([3,4,"cats","mice"])
+    end
+  end
 end
