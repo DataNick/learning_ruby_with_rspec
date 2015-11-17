@@ -288,10 +288,10 @@ describe Array do
     end
   end
 
-  describe "#bsearch{|obj|block} --> elem" do
-    it "returns " do
-    end
-  end
+  # describe "#bsearch{|obj|block} --> elem" do
+  #   it "returns " do
+  #   end
+  # end
 
   describe "#index(obj) --> int or nil" do
     it "searches the array and returns the first index in array that fulfills the condition where object is == to obj" do
@@ -334,6 +334,14 @@ describe Array do
       array = %w(cart tee carts wheel two two two)
       result = array.rindex
       expect(result.class).to eq(Enumerator)
+    end
+  end
+
+  describe "#clear" do
+    it "removes all elements from array" do
+      array = %w(item element carts collection)
+      array.clear
+      expect(array).to eq([])
     end
   end
 
