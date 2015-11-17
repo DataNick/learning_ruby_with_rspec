@@ -52,7 +52,7 @@ describe Array do
     end
   end
 
-  describe "&" do
+  describe "&" do #set intersection
     it "returns a new array containing elements common to both array & new_array" do
       array = [1,2,3,"cats"]
       new_array = Array.new(3, "cats")
@@ -61,4 +61,14 @@ describe Array do
     end
   end
 
+  describe "ary * int -> new_array" do #repetition
+    it "returns a new array built by concatenating the int copies to self" do
+      array = [["cats",1], ["dogs",2], ["mice", 3]] * 3
+      expect(array).to eq([["cats",1], ["dogs",2], ["mice", 3], ["cats",1], ["dogs",2], ["mice", 3], ["cats",1], ["dogs",2], ["mice", 3]])
+
+    end
+  end
+
+  describe "ary * str -> new_string" do
+  end
 end
