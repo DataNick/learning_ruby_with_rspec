@@ -299,6 +299,12 @@ describe Array do
       result = array.index("bucket")
       expect(result).to eq(1)
     end
+
+    it "returns first obj that block returns true" do
+      array = %w(cart wheel barrel bucket box)
+      result = array.index{|word| word.length > 4}
+      expect(result).to eq(1)
+    end
   end
 
 end
