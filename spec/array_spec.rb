@@ -176,4 +176,13 @@ describe Array do
       expect(result).to eq(12)
     end
   end
+
+  describe "#ary[start,length]" do
+    it "returns subarray for elements beginning at start and continuing for length elements" do
+      array = ["cart", "wheel", "selection", "collection"]
+      result = array[1,3]
+      expect(result).to eq(["wheel", "selection", "collection"])
+    end
+  end
+
 end
