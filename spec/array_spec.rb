@@ -420,4 +420,12 @@ describe Array do
     end
   end
 
+  describe  "#cycle(n){|obj|block}" do
+    it "calls the block for each item in the collection n times and returns nil" do
+      a = %w(trucks one two three ten)
+      result = a.cycle(2){|x| puts x%3==0}
+      expect(result).to eq(nil)
+    end
+  end
+
 end
