@@ -217,6 +217,21 @@ describe Array do
     end
   end
 
+  describe "#delete_at(index)" do
+    it "removes an element in array at specified index" do
+      array = %w(cart wheel collect)
+      result = array.delete_at(2)
+      expect(result).to eq("collect")
+      expect(array).to eq(%w(cart wheel))
+    end
+
+    it "returns nil if object is not found at specified index" do
+      array = %w(cart wheel)
+      result = array.delete_at(6)
+      expect(result).to eq(nil)
+    end
+  end
+
   describe "#array[index] = obj" do
     it "sets the value/element at index" do
       array = Array.new
@@ -447,6 +462,8 @@ describe Array do
       expect(result).to eq("not found")
     end
   end
+
+
 
 
 end
