@@ -385,5 +385,13 @@ describe Array do
     end
   end
 
+  describe "#concat(other_array) > array" do
+    it "adds two arrays together" do
+      array = %w(cart bucket)
+      other_array = [1,2,3]
+      array.concat(other_array)
+      expect(array).to eq(["cart", "bucket", 1,2,3])
+    end
+  end
 
 end
