@@ -514,6 +514,19 @@ describe Array do
       v = %w(cart barrel log collect)
       v.each_index{|i| a << i*2}
       expect(a).to eq([0,2,4,6])
+      expect(v.each.class).to eq(Enumerator)
+    end
+  end
+
+  describe "#empty?" do
+    it "returns true if array has no elements" do
+      v = Array.new
+      expect(v.empty?).to eq(true)
+    end
+
+    it "returns false if array has elements" do
+      v = Array.new(2, "items")
+      expect(v.empty?).to eq(false)
     end
   end
 
