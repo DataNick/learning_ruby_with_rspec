@@ -463,7 +463,13 @@ describe Array do
     end
   end
 
-
+  describe "#delete_if{|item|block}" do
+    it "removes every element for which block returns true" do
+      a = %w(cart wheel barrel bucket well)
+      a.delete_if{|word| word.size == 4}
+      expect(a).to eq(%w(wheel barrel bucket))
+    end
+  end
 
 
 end
