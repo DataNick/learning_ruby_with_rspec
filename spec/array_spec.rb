@@ -402,4 +402,11 @@ describe Array do
     end
   end
 
+  describe "#count" do
+    it "counts the number of elements in the array" do
+      array = [1, 2, 3, "cart", "wheel", nil, true, false]
+      expect(array.count).to eq(8)
+    end
+  end
+
 end
