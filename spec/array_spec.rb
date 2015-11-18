@@ -377,5 +377,13 @@ describe Array do
     end
   end
 
+  describe "#nil > new_array" do
+    it "returns a new array with all nil values removed" do
+      array = [1,2,"cart",true,nil,false,nil]
+      array.compact!
+      expect(array).to eq([1,2,"cart",true,false])
+    end
+  end
+
 
 end
