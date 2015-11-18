@@ -392,6 +392,14 @@ describe Array do
       array.concat(other_array)
       expect(array).to eq(["cart", "bucket", 1,2,3])
     end
+
+    it "uses + to add arrays together" do
+      array = %w(cart bucket)
+      other_array = [1,2,3]
+      another_array = %w(well collect)
+      result = array + other_array + another_array
+      expect(result).to eq(["cart", "bucket", 1,2,3, "well", "collect"])
+    end
   end
 
 end
