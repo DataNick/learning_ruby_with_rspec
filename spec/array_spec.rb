@@ -392,7 +392,7 @@ describe Array do
     end
   end
 
-  describe "#nil > new_array" do
+  describe "#compact! > new_array" do
     it "returns a new array with all nil values removed" do
       array = [1,2,"cart",true,nil,false,nil]
       array.compact!
@@ -543,6 +543,14 @@ describe Array do
       x = [1,4,3]
       result = v.eql?(x)
       expect(result).to eq(false)
+    end
+  end
+
+  describe "#fetch(index)" do
+    it "returns element from specified index" do
+      a = [1, 2, nil, "cart"]
+      result = a.fetch(3)
+      expect(result).to eq("cart")
     end
   end
 
