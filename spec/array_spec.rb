@@ -500,6 +500,21 @@ describe Array do
       result = v.each{|x| a << x*2}
       expect(a).to eq([2,4,6,8])
     end
+
+    it "returns an Enumerator object when called without a block" do
+      v = [1,2,3,4]
+      result = v.each
+      expect(result.class).to eq(Enumerator)
+    end
+  end
+
+  describe "#each_index{|index|block}" do
+    it "passes index of element instead of element" do
+      a = []
+      v = %w(cart barrel log collect)
+      v.each_index{|i| a << i*2}
+      expect(a).to eq([0,2,4,6])
+    end
   end
 
 end
