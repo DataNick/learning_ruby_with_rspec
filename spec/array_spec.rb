@@ -369,4 +369,13 @@ describe Array do
     end
   end
 
+  describe "#combination(n)" do
+    it "yields all combinations of length n of elements from array and returns array" do
+      array = [1,2,3,4,5,6]
+      result = array.combination(5).to_a
+      expect(result).to eq([[1,2,3,4,5],[1,2,3,4,6],[1,2,3,5,6],[1,2,4,5,6],[1,3,4,5,6],[2,3,4,5,6]])
+    end
+  end
+
+
 end
