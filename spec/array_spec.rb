@@ -428,4 +428,19 @@ describe Array do
     end
   end
 
+  describe "#delete(obj)" do
+    it "removes element == obj from array" do
+      array = %w(cart one two three)
+      array.delete("cart")
+      expect(array).to eq(%w(one two three))
+    end
+
+    it "returns the object that was deleted from array" do
+      array = %w(cart one two three)
+      var = array.delete("cart")
+      expect(var).to eq("cart")
+    end
+  end
+
+
 end
