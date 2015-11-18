@@ -471,5 +471,12 @@ describe Array do
     end
   end
 
+  describe "#drop(n)" do
+    it "removes first n elements and returns a new array" do
+      a = %w(cart wheel bucket well barrel box)
+      result = a.drop(4)
+      expect(result).to eq(%w(barrel box))
+    end
+  end
 
 end
