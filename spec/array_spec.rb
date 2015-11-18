@@ -552,6 +552,14 @@ describe Array do
       result = a.fetch(3)
       expect(result).to eq("cart")
     end
+
+    it "returns a new value for an index that is outside range of current array and returns object" do
+      a = %w(cart collect log)
+      result = a.fetch(2, "cart")
+      result_too = a.fetch(3, "wheel")
+      expect(result).to eq("log")
+      expect(result_too).to eq("wheel")
+    end
   end
 
 end
