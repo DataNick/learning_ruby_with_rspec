@@ -480,10 +480,25 @@ describe Array do
   end
 
   describe "#drop_while{|arr|block}" do
-    it "removes elements up to but not including the first element for which block returns nil or false" do
-      a = %w(cart wheel bucket well barrel box)
+    it "removes elements up to the first element for which block returns nil or false" do
+      a = %w(cart cage wheel bucket well barrel box) #only cart & cage will be removed
       result = a.drop_while{|x| x.length == 4}
       expect(result).to eq(%w(wheel bucket well barrel box))
+    end
+  end
+
+  describe "#each{|item|block}" do
+    it "returns an enumerator object when called without a block" do
+      a = %w(cart wheel log collect)
+      result = a.each
+      expect(result.class).to eq(Enumerator)
+    end
+
+    it "calls block once for each element in collection" do
+      a = []
+      v = [1,2,3,4]
+      result = v.each{|x| a << x*2}
+      expect(a).to eq([2,4,6,8])
     end
   end
 
