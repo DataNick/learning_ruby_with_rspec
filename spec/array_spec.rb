@@ -407,6 +407,17 @@ describe Array do
       array = [1, 2, 3, "cart", "wheel", nil, true, false]
       expect(array.count).to eq(8)
     end
+
+    it "counts the number of objects in argument" do
+      array = [1, 2, 3, "cart", "wheel", nil, true, false, 1, 1]
+      expect(array.count(1)).to eq(3)
+    end
+
+    it "counts the number of objects for which block returns true" do
+      array = %w(one two three four five six seven eight nine ten)
+      result = array.count{|word| word.length%3 == 0}
+      expect(result).to eq(4)
+    end
   end
 
 end
