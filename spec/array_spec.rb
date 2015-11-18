@@ -560,6 +560,12 @@ describe Array do
       expect(result).to eq("log")
       expect(result_too).to eq("wheel")
     end
+
+    it "returns a block only when specified index is outside the range of array" do
+      a = %w(collect log wheel bucket)
+      result = a.fetch(64){|index| "#{index} is out of bounds"}
+      expect(result).to eq("64 is out of bounds")
+    end
   end
 
 end
