@@ -530,4 +530,20 @@ describe Array do
     end
   end
 
+  describe "#eql?(other_array)" do
+    it "returns true if array and other array are same or conatain same content" do
+      v = [1,2,3]
+      x = [1,2,3]
+      result = v.eql?(x)
+      expect(result).to eq(true)
+    end
+
+    it "returns false if self and other are different objects" do
+      v = [1,2,3]
+      x = [1,4,3]
+      result = v.eql?(x)
+      expect(result).to eq(false)
+    end
+  end
+
 end
