@@ -479,4 +479,12 @@ describe Array do
     end
   end
 
+  describe "#drop_while{|arr|block}" do
+    it "removes elements up to but not including the first element for which block returns nil or false" do
+      a = %w(cart wheel bucket well barrel box)
+      result = a.drop_while{|x| x.length == 4}
+      expect(result).to eq(%w(wheel bucket well barrel box))
+    end
+  end
+
 end
