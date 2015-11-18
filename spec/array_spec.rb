@@ -440,6 +440,12 @@ describe Array do
       var = array.delete("cart")
       expect(var).to eq("cart")
     end
+
+    it "returns value from the block if item is not found" do
+      array = %w(cart wheel collect)
+      result = array.delete("two"){"not found"}
+      expect(result).to eq("not found")
+    end
   end
 
 
