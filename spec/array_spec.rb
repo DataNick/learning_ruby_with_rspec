@@ -642,6 +642,20 @@ describe Array do
     end
   end
 
+  describe "#last(n)" do
+    it "returns last element in array" do
+      a = %w(log well bucket)
+      result = a.last
+      expect(result).to eq("bucket")
+    end
+
+    it "returns last n elements from array" do
+      a = %w(bucket barrel pile collect)
+      result = a.last(3)
+      expect(result).to eq(%w(barrel pile collect))
+    end
+  end
+
   describe "#flatten(level)" do
     it "returns a new array that is a one-dimensional flattening of self" do
       a = [1,2,3]
