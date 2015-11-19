@@ -735,4 +735,12 @@ describe Array do
     end
   end
 
+  describe "#keep_if{|item|block}" do
+    it "deletes every item in array for which block returns false" do
+      a = %w(cart log well bucket one two)
+      a.keep_if{|word| word.size < 4}
+      expect(a).to eq(%w(log one two))
+    end
+  end
+
 end
