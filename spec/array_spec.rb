@@ -782,4 +782,12 @@ describe Array do
     end
   end
 
+  describe "#map!{|item|block}" do
+    it "returns self with changes from the block" do
+      a = [1,2,3,4,5]
+      a.map!{|item| item % 2 == 0}
+      expect(a).to eq([false, true, false, true, false])
+    end
+  end
+
 end
