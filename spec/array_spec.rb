@@ -709,10 +709,16 @@ describe Array do
       a = %w(cart wheelbarrow well bucket)
       result = a.inspect
       expect(result).to eq("[\"cart\", \"wheelbarrow\", \"well\", \"bucket\"]") # \ backslashes are used as escape markers to prevent words being crammed together
+      ##inspect is usually used for debugging and will return all instance variables along with object_id and name when called on object
     end
   end
 
   describe "#to_s" do
+    it "will return a string of self" do
+      a = %w(cart log bucket)
+      string = a.to_s
+      expect(string).to eq("[\"cart\", \"log\", \"bucket\"]")
+    end
   end
 
 end
