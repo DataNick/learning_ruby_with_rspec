@@ -568,4 +568,18 @@ describe Array do
     end
   end
 
+  describe "#fill(obj, default = nil)" do
+    it "sets the selected elements of self to obj" do
+      a = Array.new(10, 1)
+      result = a.fill(5)
+      expect(result).to eq([5,5,5,5,5,5,5,5,5,5])
+    end
+
+    it "sets the object for self for the designated start and length of index" do
+      a = Array.new(10,2)
+      result = a.fill(5, 5,2)
+      expect(result).to eq([2,2,2,2,2,5,5,2,2,2])
+    end
+  end
+
 end
