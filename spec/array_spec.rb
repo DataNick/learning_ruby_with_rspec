@@ -628,4 +628,18 @@ describe Array do
     end
   end
 
+  describe "#first" do
+    it "returns first element in array" do
+      a = %w(cart log well box bucket)
+      result = a.first
+      expect(result).to eq("cart")
+    end
+
+    it "returns first n elements from array" do
+      a = %w(box bucket run cart log)
+      result = a.first(3)
+      expect(result).to eq(%w(box bucket run))
+    end
+  end
+
 end
