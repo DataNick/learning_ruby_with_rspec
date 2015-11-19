@@ -642,4 +642,22 @@ describe Array do
     end
   end
 
+  describe "#flatten(level)" do
+    it "returns a new array that is a one-dimensional flattening of self" do
+      a = [1,2,3]
+      t = %w(cart log well)
+      b = [a, t, 7,8,9]
+      result = b.flatten
+      expect(result).to eq([1,2,3,"cart","log","well",7,8,9])
+    end
+
+    it "returns a new array where level determines the level of recursion to flatten" do
+      a = [1,2,3, [1,2,3]]
+      t = %w(cart log well)
+      b = [a, t, 7,8,9]
+      result = b.flatten(1)
+      expect(result).to eq([1,2,3,[1,2,3],"cart","log","well", 7,8,9])
+    end
+  end
+
 end
