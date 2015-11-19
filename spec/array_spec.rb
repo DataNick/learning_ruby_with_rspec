@@ -594,6 +594,9 @@ describe Array do
     end
 
     it "runs a block on index range in array" do
+      a = Array.new(6, 2)
+      result = a.fill(-3){|index| index * 3}
+      expect(result).to eq([2,2,2,9,12,15])
     end
   end
 
