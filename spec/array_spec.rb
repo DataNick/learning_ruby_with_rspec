@@ -766,10 +766,19 @@ describe Array do
   end
 
   describe "#length" do
-    it "returns number of elements in array" do
+    it "returns number of elements in array as integer" do
       a = %w(1 two trois)
       result = a.length
       expect(result).to eq(3)
+    end
+  end
+
+  describe "#map{|item| block}" do
+    it "runs block once for each element in self and creates a new array" do
+      a = %w(cart log collect map)
+      var = []
+      result = a.map{|x| x.length > 5 ? var << x : x }
+      expect(var).to eq(%w(collect))
     end
   end
 
