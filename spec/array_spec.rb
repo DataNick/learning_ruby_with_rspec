@@ -649,7 +649,7 @@ describe Array do
       expect(result).to eq("bucket")
     end
 
-    it "returns last n elements from array" do
+    it "returns array of last n elements from array" do
       a = %w(bucket barrel pile collect)
       result = a.last(3)
       expect(result).to eq(%w(barrel pile collect))
@@ -762,6 +762,14 @@ describe Array do
       a = %w(log well bucket wheelbarrow barrel)
       a.select!{|word| word.chars.sort[0] =~ /[a]/}
       expect(a).to eq(%w(wheelbarrow barrel))
+    end
+  end
+
+  describe "#length" do
+    it "returns number of elements in array" do
+      a = %w(1 two trois)
+      result = a.length
+      expect(result).to eq(3)
     end
   end
 
