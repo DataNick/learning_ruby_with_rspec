@@ -743,4 +743,12 @@ describe Array do
     end
   end
 
+  describe "#select!{|item|block}" do
+    it "deletes elements for which block returns false and returns self with changes" do
+      a = %w(log well bucket wheelbarrow barrel)
+      a.select!{|word| word.chars.sort[0] =~ /[a]/}
+      expect(a).to eq(%w(wheelbarrow barrel))
+    end
+  end
+
 end
