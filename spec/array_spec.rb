@@ -721,4 +721,12 @@ describe Array do
     end
   end
 
+  describe "#join(separator=$,) > str" do #the output separator is , by default
+    it "returns a string with words using separator $," do
+      a = [1,2,3]
+      result = a.join($,)
+      expect(result).to eq("123")
+    end
+  end
+
 end
