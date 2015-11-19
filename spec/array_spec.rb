@@ -727,6 +727,12 @@ describe Array do
       result = a.join($,)
       expect(result).to eq("123")
     end
+
+    it "returns a string separated by question marks" do
+      a = [1,2,3]
+      result = a.join("?")
+      expect(result).to eq("1?2?3")
+    end
   end
 
 end
