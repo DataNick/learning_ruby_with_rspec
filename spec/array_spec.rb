@@ -580,6 +580,21 @@ describe Array do
       result = a.fill(5, 5,2)
       expect(result).to eq([2,2,2,2,2,5,5,2,2,2])
     end
+
+    it "returns the object in the range of indices specified" do
+      a = Array.new(5, "a")
+      result = a.fill("b",1..3)
+      expect(result).to eq(["a","b","b","b","a"])
+    end
+
+    it "runs a block for each index in array" do
+      a = Array.new(5, "a")
+      result = a.fill{|index| index * 3}
+      expect(result).to eq([0,3,6,9,12])
+    end
+
+    it "runs a block on index range in array" do
+    end
   end
 
 end
