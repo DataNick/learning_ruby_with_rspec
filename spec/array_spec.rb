@@ -675,4 +675,16 @@ describe Array do
     end
   end
 
+  describe "#include?" do
+    it "returns true if array contains arg/obj passed in the method" do
+      a = %w(cart wheel log)
+      expect(a.include?("wheel")).to eq(true)
+    end
+
+    it "returns false if array doesn't contain arg/obj passed in the method" do
+      a = %w(cart wheelbarrow log)
+      expect(a.include?("wheel")).to eq(false)
+    end
+  end
+
 end
