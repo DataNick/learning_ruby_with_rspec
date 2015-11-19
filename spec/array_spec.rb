@@ -696,4 +696,12 @@ describe Array do
     end
   end
 
+  describe "#insert(index,obj) > ary" do
+    it "includes the obj at the specified index" do
+      a = [0,1,2,3]
+      a.insert(1, "cart")
+      expect(a).to eq([0,"cart",1,2,3])
+    end
+  end
+
 end
