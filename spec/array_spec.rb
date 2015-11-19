@@ -704,4 +704,15 @@ describe Array do
     end
   end
 
+  describe "#inspect" do
+    it "returns a string of self" do
+      a = %w(cart wheelbarrow well bucket)
+      result = a.inspect
+      expect(result).to eq("[\"cart\", \"wheelbarrow\", \"well\", \"bucket\"]") # \ backslashes are used as escape markers to prevent words being crammed together
+    end
+  end
+
+  describe "#to_s" do
+  end
+
 end
