@@ -660,4 +660,19 @@ describe Array do
     end
   end
 
+  describe "#hash" do
+    it "returns a Fixnum hash-code for array" do
+      a = Array.new(6, "a")
+      result = a.hash
+      expect(result.class).to eq(Fixnum)
+    end
+
+    it "ensures that two arrays with same content have same hash-code number" do
+      a = Array.new(6, "a")
+      b = Array.new(6, "a")
+      result = a.hash == b.hash
+      expect(result).to eq(true)
+    end
+  end
+
 end
