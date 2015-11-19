@@ -600,4 +600,18 @@ describe Array do
     end
   end
 
+  describe "#find_index(obj){|item|block}" do
+    it "returns the index for first object in array such that object in self == obj" do
+      a = %w(cart log wheel well box)
+      result = a.find_index("log")
+      expect(result).to eq(1)
+    end
+
+    it "runs the block and returns first index for which block returns true" do
+      a = %w(cart cart log log well well)
+      result = a.find_index{|object| object == "log"}
+      expect(result).to eq(2)
+    end
+  end
+
 end
