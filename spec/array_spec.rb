@@ -687,4 +687,13 @@ describe Array do
     end
   end
 
+  describe "#initialize_copy(other_ary) > array" do
+    it "replaces contents of self with contents of other_array" do
+      a = [1,2,3,4]
+      b = %w(cart wheelbarrow bucket)
+      a.replace(b)
+      expect(a).to eq(b)
+    end
+  end
+
 end
