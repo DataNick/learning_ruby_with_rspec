@@ -828,4 +828,13 @@ describe Array do
     end
   end
 
+  describe "#rassoc(obj) > new_ary" do
+    it "compares obj with the second element of each contained array using obj == and returns first contained array that matches obj" do
+      a = [[:car, 1],[1,:car],[:two,:car],[4,:four]]
+      result = a.rassoc(:car)
+      expect(result).to eq([1,:car])
+
+    end
+  end
+
 end
