@@ -844,6 +844,20 @@ describe Array do
     end
   end
 
+  # describe "#repeated_combination(n)" do
+  # end
+
+  # describe "#repeated_permutation(n)" do
+  # end
+
+  describe "#replace(other_array) > ary" do
+    it "inserts other_array as self" do
+      a = [1,2,3,4]
+      b = %w(a b c d)
+      a.replace(b)
+      expect(a).to eq(%w(a b c d))
+    end
+  end
 
 
 end
