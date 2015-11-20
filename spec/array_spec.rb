@@ -516,6 +516,15 @@ describe Array do
     end
   end
 
+  describe "#reverse_each{|item|block} > ary" do
+    it "traverses the array in reverse order" do
+      a = [1,2,3,4]
+      b = []
+      result = a.reverse_each{|number| b << number.to_s + "!"}
+      expect(b).to eq(["4!", "3!", "2!", "1!"])
+    end
+  end
+
   describe "#each_index{|index|block}" do
     it "passes index of element instead of element" do
       a = []
@@ -875,14 +884,14 @@ describe Array do
     end
   end
 
-  describe "#reverse_each{|item|block} > ary" do
-    it "traverses the array in reverse order" do
+  describe "#rotate(count=1) > new_array" do
+    it "returns new array by rotating self so that element at count is first element of new array" do
       a = [1,2,3,4]
-      b = []
-      result = a.reverse_each{|number| b << number.to_s + "!"}
-      expect(b).to eq(["4!", "3!", "2!", "1!"])
+      a.rotate!(-2)
+      expect(a).to eq([3,4,1,2])
     end
   end
+
 
 
 end
