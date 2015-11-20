@@ -859,5 +859,13 @@ describe Array do
     end
   end
 
+  describe "#reverse > new_ary" do
+    it "returns a new array that returns self's elements in reverse order" do
+      a = %w(can you say)
+      result = a.reverse
+      expect(result).to eq(%w(say you can))
+    end
+  end
+
 
 end
