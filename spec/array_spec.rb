@@ -801,4 +801,12 @@ describe Array do
     end
   end
 
+  describe "#pop(n)" do
+    it "removes the last n elements from array" do
+      a = [0,1,2,3,4,5]
+      a.pop(3)
+      expect(a).to eq([0,1,2])
+    end
+  end
+
 end
