@@ -950,6 +950,12 @@ describe Array do
       a.sort!
       expect(a).to eq(%w(aardvark ant cat volcano zebra))
     end
+
+    it "runs a comparison between a and b" do
+      a = [1,2,3,4,5,6,7,8]
+      a.sort!{|a,b| b <=> a}
+      expect(a).to eq([8,7,6,5,4,3,2,1])
+    end
   end
 
 
