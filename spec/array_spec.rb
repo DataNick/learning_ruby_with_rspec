@@ -503,6 +503,14 @@ describe Array do
     end
   end
 
+  describe "#take(n) > new_array" do
+    it "returns a new array of self's first n elements" do
+      a = [1,2,3,4,5,6,7]
+      result = a.take(4)
+      expect(result).to eq([1,2,3,4])
+    end
+  end
+
   describe "#drop_while{|arr|block}" do
     it "removes elements up to the first element for which block returns nil or false" do
       a = %w(cart cage wheel bucket well barrel box) #only cart & cage will be removed
