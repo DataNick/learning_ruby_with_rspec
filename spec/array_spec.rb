@@ -217,6 +217,20 @@ describe Array do
     end
   end
 
+  describe "#shift > obj" do
+    it "removes first element from array and returns it" do
+      a = %w(cart log well)
+      expect(a.shift).to eq("cart")
+    end
+  end
+
+  describe "#shift(n) > new_ary" do
+    it "returns an array of first n elements" do
+      a = %w(carry load well bucket)
+      expect(a.shift(2)).to eq(%w(carry load))
+    end
+  end
+
   describe "#delete_at(index)" do
     it "removes an element in array at specified index" do
       array = %w(cart wheel collect)
@@ -905,6 +919,7 @@ describe Array do
       expect(result).to eq(true)
     end
   end
+
 
 
 
