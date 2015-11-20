@@ -819,4 +819,13 @@ describe Array do
     end
   end
 
+  describe "#push(obj)" do
+    it "adds obj to end of array" do
+      a = [1,2,3,4]
+      b = %w(end of the array)
+      a.push(b)
+      expect(a).to eq([1,2,3,4,["end","of","the","array"]])
+    end
+  end
+
 end
