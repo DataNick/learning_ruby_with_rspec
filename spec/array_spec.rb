@@ -221,6 +221,7 @@ describe Array do
     it "removes first element from array and returns it" do
       a = %w(cart log well)
       expect(a.shift).to eq("cart")
+      expect(a).to eq(%w(log well))
     end
   end
 
@@ -228,6 +229,7 @@ describe Array do
     it "returns an array of first n elements" do
       a = %w(carry load well bucket)
       expect(a.shift(2)).to eq(%w(carry load))
+      expect(a).to eq(%w(well bucket))
     end
   end
 
@@ -920,6 +922,20 @@ describe Array do
     end
   end
 
+  describe "#shuffle > new_ary" do
+    it "returns a new array with elements of self shuffled" do
+      a = [1,2,3,4,5,6]
+      result = a.shuffle != a
+      expect(result).to eq(true)
+    end
+
+    it "the optional rng argument will be used as the random number generator" do
+      a = [1,2,3,4]
+      result = a.shuffle(random: Random.new(1))
+      expect(result == a).to eq(false)
+      expect(result).to eq([4,3,1,2])
+    end
+  end
 
 
 
