@@ -875,5 +875,14 @@ describe Array do
     end
   end
 
+  describe "#reverse_each{|item|block} > ary" do
+    it "traverses the array in reverse order" do
+      a = [1,2,3,4]
+      b = []
+      result = a.reverse_each{|number| b << number.to_s + "!"}
+      expect(b).to eq(["4!", "3!", "2!", "1!"])
+    end
+  end
+
 
 end
