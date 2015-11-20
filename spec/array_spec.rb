@@ -806,6 +806,13 @@ describe Array do
     end
   end
 
+  describe "#size" do
+    it "returns number of elements in array" do
+      a = [1,2,3,4]
+      expect(a.size).to eq(4)
+    end
+  end
+
   describe "#map{|item| block}" do
     it "runs block once for each element in self and creates a new array" do
       a = %w(cart log collect map)
