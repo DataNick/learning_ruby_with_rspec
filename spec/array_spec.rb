@@ -898,6 +898,12 @@ describe Array do
       result = a.sample == a.sample
       expect(result).to eq(false)
     end
+
+    it "returns an array of n unique elements chosen at random" do
+      a = [1,2,3,4,5,6]
+      result = a.sample(3).count == 3
+      expect(result).to eq(true)
+    end
   end
 
 
