@@ -892,6 +892,14 @@ describe Array do
     end
   end
 
+  describe "#sample" do
+    it "returns an element from array chosen at random" do #elements are chosen by using random and unique indices to ensure unrepeatability
+      a = [1,2,3,4,5,6,7,8,9,0]
+      result = a.sample == a.sample
+      expect(result).to eq(false)
+    end
+  end
+
 
 
 end
