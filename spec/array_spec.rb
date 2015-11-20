@@ -944,6 +944,13 @@ describe Array do
     end
   end
 
+  describe "#sort" do
+    it "compares elements using <=> and returns a new array" do
+      a = %w(cat aardvark ant volcano zebra)
+      a.sort!
+      expect(a).to eq(%w(aardvark ant cat volcano zebra))
+    end
+  end
 
 
 end
