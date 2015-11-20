@@ -867,5 +867,13 @@ describe Array do
     end
   end
 
+  describe "#reverse! > ary" do
+    it "reverses self in place" do
+      a = %w(car you link)
+      a.reverse!
+      expect(a).to eq(%w(link you car))
+    end
+  end
+
 
 end
