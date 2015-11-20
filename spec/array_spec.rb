@@ -471,6 +471,14 @@ describe Array do
     end
   end
 
+  describe "#reject{|item|block} > new_array" do
+    it "returns a new array containing items in self for which the given block returns not true" do
+      a = [1,2,3,4,5,6,7,8,9,10]
+      a.reject!{|item| item % 2 == 0}
+      expect(a).to eq([1,3,5,7,9])
+    end
+  end
+
   describe "#drop(n)" do
     it "removes first n elements and returns a new array" do
       a = %w(cart wheel bucket well barrel box)
@@ -833,8 +841,9 @@ describe Array do
       a = [[:car, 1],[1,:car],[:two,:car],[4,:four]]
       result = a.rassoc(:car)
       expect(result).to eq([1,:car])
-
     end
   end
+
+
 
 end
