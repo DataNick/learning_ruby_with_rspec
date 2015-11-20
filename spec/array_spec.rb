@@ -790,4 +790,15 @@ describe Array do
     end
   end
 
+  # describe "#pack" do
+  # end
+
+  describe "#permutation{|p|block}" do
+    it "yields all permutations of length n of the elements of array" do
+      a = ["a", 1, nil]
+      result = a.permutation(3).to_a
+      expect(result).to eq([["a",1,nil],["a",nil,1],[1,"a",nil],[1,nil,"a"],[nil,"a",1],[nil,1,"a"]])
+    end
+  end
+
 end
