@@ -1014,5 +1014,12 @@ describe Array do
     end
   end
 
+  describe "#uniq > new_ary" do
+    it "returns new array removing any duplicate elements" do
+      a = %w(a a b b b nil nil true false c d e e)
+      expect(a.uniq).to eq(%w(a b nil true false c d e))
+    end
+  end
+
 
 end
