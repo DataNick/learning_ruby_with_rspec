@@ -982,5 +982,20 @@ describe Array do
     end
   end
 
+  describe "#to_a > ary" do
+    it "returns self" do #If called on a subclass of Array, converts the receiver to an Array object. Receiver is self by default.
+      a = %w(car tree house)
+      result = a.to_a
+      expect(result).to eq(%w(car tree house))
+    end
+  end
+
+  describe "#to_ary > ary" do
+    it "returns self" do
+      a = [1,2,3,4,5]
+      array = a.to_ary
+      expect(array).to eq([1,2,3,4,5])
+    end
+  end
 
 end
