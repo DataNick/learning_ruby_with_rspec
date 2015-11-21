@@ -511,6 +511,14 @@ describe Array do
     end
   end
 
+  describe "#take_while{|obj|block} > new_ary" do
+    it "passes elements in block until block returns nil or false, stops and returns array of all prior elements for which block returned true" do
+      a = [1,2,3,4,5,nil,6,8]
+      result = a.take_while{|num| num < 3}
+      expect(result).to eq([1,2])
+    end
+  end
+
   describe "#drop_while{|arr|block}" do
     it "removes elements up to the first element for which block returns nil or false" do
       a = %w(cart cage wheel bucket well barrel box) #only cart & cage will be removed
