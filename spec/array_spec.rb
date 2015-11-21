@@ -1048,5 +1048,12 @@ describe Array do
     end
   end
 
+  describe "ary | other_ary" do
+    it "merges two arrays together and removes duplicate items" do
+      a = [1,2,3] | [3,4,5] | [5,6,7]
+      expect(a).to eq([1,2,3,4,5,6,7])
+    end
+  end
+
 
 end
