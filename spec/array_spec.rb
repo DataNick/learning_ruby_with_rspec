@@ -1033,7 +1033,18 @@ describe Array do
     it "returns values corresponding to specified selectors(indices)" do
       a = [1,2,"car",:tree, nil,true,false, 4,5,6,9]
       results = a.values_at(4,2,7,0)
+      range = a.values_at(2...7)
       expect(results).to eq([nil,"car",4,1])
+      expect(range).to eq(["car",:tree,nil,true,false])
+    end
+  end
+
+  describe "#zip" do
+    it "converts arguments to arrays and merges elements of self with corresponding elements from each argument" do
+      a = [1,2,3]
+      b = ["a","b","c"]
+      result = [true, true].zip(a,b)
+      expect(result).to eq([[true, 1, "a"], [true, 2, "b"]])
     end
   end
 
