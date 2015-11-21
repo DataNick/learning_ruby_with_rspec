@@ -998,4 +998,12 @@ describe Array do
     end
   end
 
+  describe "#to_h > hash" do
+    it "returns a hash object from interpreting ary as an array of [key,value] pairs" do
+      a = [[:car, 2], ["trees", []]]
+      hash = a.to_h
+      expect(hash).to eq({car: 2, "trees" => []})
+    end
+  end
+
 end
