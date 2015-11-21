@@ -1029,5 +1029,13 @@ describe Array do
     end
   end
 
+  describe "#values_at(selector, ...) > new_ary" do
+    it "returns values corresponding to specified selectors(indices)" do
+      a = [1,2,"car",:tree, nil,true,false, 4,5,6,9]
+      results = a.values_at(4,2,7,0)
+      expect(results).to eq([nil,"car",4,1])
+    end
+  end
+
 
 end
