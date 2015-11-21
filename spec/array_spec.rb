@@ -1021,5 +1021,13 @@ describe Array do
     end
   end
 
+  describe "#uniq{|item| block} > new_ary" do
+    it "uses return value of block for comparison" do
+      b = [["student","sam"], ["student","george"], ["teacher","matz"]]
+      result = b.uniq{|s|s.first}
+      expect(result).to eq([["student","sam"],["teacher","matz"]])
+    end
+  end
+
 
 end
