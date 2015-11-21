@@ -1006,4 +1006,13 @@ describe Array do
     end
   end
 
+  describe "#transpose > new_ary" do
+    it "assumes self is an array of arrays and switches the rows and columns" do
+      a = [[1,2,3],[4,5,6],[7,8,9]]
+      result = a.transpose
+      expect(result).to eq([[1,4,7],[2,5,8],[3,6,9]])
+    end
+  end
+
+
 end
