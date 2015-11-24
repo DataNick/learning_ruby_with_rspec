@@ -17,5 +17,13 @@ describe Object do
     end
   end
 
+  describe "#send(:sym[args]) --> obj" do
+    it "invokes a method signified by :sym and passes in specified arguments" do
+      a = [3,2,4,1,5]
+      a.send(:sort!)
+      expect(a).to eq([1,2,3,4,5])
+    end
+  end
+
 
 end
