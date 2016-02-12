@@ -12,6 +12,17 @@ describe OpenStruct do
       data = OpenStruct.new(hash)
       expect(data[:name]).to eq("Harry")
     end
+
+    it "calls the new method to create a new OpenStruct object" do
+      person = OpenStruct.new(name: "name", age: "has an age", height: "that, too", weight: "well, duh")
+      expect(person[:weight]).to eq("well, duh")
+    end
+
+    it "can re-write values of keys" do
+      person = OpenStruct.new(name: "name", age: "has an age", height: "that, too", weight: "well, duh")
+      person[:name] = "Charles"
+      expect(person[:name]).to eq("Charles")
+    end
   end
 
   describe "#[]name" do
