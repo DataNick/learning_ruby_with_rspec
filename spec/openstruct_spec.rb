@@ -3,6 +3,7 @@ require 'ostruct'
 
 # Data structure similar to a hash. Defines arbitrary attributes and with their accompanying values
 # Makes use of Ruby's metaprogramming to define mehtods on the class itself
+# employs a hash internally to store it's methods and values
 
 describe OpenStruct do
 
@@ -29,6 +30,23 @@ describe OpenStruct do
     it "returns value of a member" do
       person = OpenStruct.new('name' => 'John Smith', 'age' => 70)
       expect(person[:name]).to eq('John Smith')
+    end
+  end
+
+  describe "#send method" do
+    it "reaches hash keys with characters not normally reserved for methods" do
+      measurements = OpenStruct.new("length (in inches)" => 24)
+      send = measurements.send("length (in inches)")
+      expect(send).to eq(24)
+    end
+  end
+
+  describe "#delete_field" do
+    it "removes the field from the object" do
+      first_pet = OpenStruct.new(:name => 'Rowdy', :owner => 'John Smith')
+      first_pet.delete_field(:owner)
+      second_pet = OpenStruct.new(:name => 'Rowdy')
+      expect(first_pet == second_pet).to eq(true)
     end
   end
 end
