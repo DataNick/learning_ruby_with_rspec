@@ -57,4 +57,18 @@ describe OpenStruct do
       expect(first_pet == second_pet).to eq(true)
     end
   end
+
+  describe "#each_pair()" do
+    it "Yields all attributes (as a symbol) along with the corresponding values or returns an enumerator if not block is given" do
+      data = OpenStruct.new("country" => "Australia", :population => 20_000_000)
+      array_of_data = data.each_pair.to_a
+      expect(array_of_data).to eq([[:country, "Australia"], [:population, 20000000]])
+    end
+  end
+
+
+
+
+
+
 end
