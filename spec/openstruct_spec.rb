@@ -66,6 +66,15 @@ describe OpenStruct do
     end
   end
 
+  describe "#eql?(other)" do
+    it "Compares this object and other for equality" do
+      data = OpenStruct.new("country" => "Australia", :population => 20_000_000)
+      data_2 = OpenStruct.new("country" => "Australia", :population => 20_000_000)
+      result = data.eql?(data_2)
+      expect(result).to eq(true)
+    end
+  end
+
 
 
 
