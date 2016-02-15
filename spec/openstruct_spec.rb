@@ -33,6 +33,14 @@ describe OpenStruct do
     end
   end
 
+  describe "#[]=" do
+    it "sets the value of a member" do
+      person = OpenStruct.new('name' => 'John Smith', 'age' => 70)
+      person[:name] = "Stuart"
+      expect(person[:name]).to eq("Stuart")
+    end
+  end
+
   describe "#send method" do
     it "reaches hash keys with characters not normally reserved for methods" do
       measurements = OpenStruct.new("length (in inches)" => 24)
