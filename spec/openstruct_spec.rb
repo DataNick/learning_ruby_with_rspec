@@ -108,4 +108,12 @@ describe OpenStruct do
       end
     end
 
+    describe "#to_h" do
+      it "converts OpenStruct object to a hash object" do
+        os_object = OpenStruct.new(name: "Josh", age: 24, occupation: "Steelworker", location: "Pennsylvania")
+        hash = os_object.to_h()
+        expect(hash).to eq({name: "Josh", age: 24, occupation: "Steelworker", location: "Pennsylvania"})
+      end
+    end
+
 end
