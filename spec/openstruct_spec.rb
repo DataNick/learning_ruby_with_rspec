@@ -81,6 +81,17 @@ describe OpenStruct do
       hash_data = data.hash()
       expect(hash_data.class).to eq(Fixnum)
     end
+
+    describe "#inspect" do
+      it "returns a string with a detailed summary of keys and values" do
+        person = OpenStruct.new('name' => 'John Smith', 'age' => 70)
+        string = person.inspect
+        expect(string).to eq("#<OpenStruct name=\"John Smith\", age=70>")
+      end
+    end
+
+
+
   end
 
 
