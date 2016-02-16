@@ -75,6 +75,14 @@ describe OpenStruct do
     end
   end
 
+  describe "#hash()" do
+    it "computes a hash code for an OpenStruct object" do
+      data = OpenStruct.new("country" => "Australia", :population => 20_000_000)
+      hash_data = data.hash()
+      expect(hash_data.class).to eq(Fixnum)
+    end
+  end
+
 
 
 
