@@ -98,4 +98,14 @@ describe OpenStruct do
       end
     end
 
+    describe "#marshal_load" do
+      it "is called with the result from marshal_dump. marshal_load must recreate the object from the information in the result" do
+        data = OpenStruct.new('name' => 'John Smith', 'age' => 70)
+        data_new = OpenStruct.new #empty object
+        marshal_dump_hash = data.marshal_dump
+        data_new.marshal_load(marshal_dump_hash)
+        expect(data_new.inspect).to eq("#<OpenStruct name=\"John Smith\", age=70>")
+      end
+    end
+
 end
