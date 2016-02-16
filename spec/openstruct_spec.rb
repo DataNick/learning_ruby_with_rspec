@@ -5,6 +5,12 @@ require 'ostruct'
 # Makes use of Ruby's metaprogramming to define mehtods on the class itself
 # employs a hash internally to store it's methods and values
 
+# An OpenStruct utilizes Ruby’s method lookup structure to and find and define the necessary methods for properties. This is accomplished through the method method_missing and define_method.
+
+# This should be a consideration if there is a concern about the performance of the objects that are created, as there is much more overhead in the setting of these properties compared to using a Hash or a Struct.
+
+# Additionally, something like a Hash has additional functionality with all of the methods it provides (has_key?, include?, etc.). The OpenStruct is a very simple object from that standpoint, but if you don't have any concerns from a performance standpoint and just want an easy object to work with, OpenStruct is a good choice.
+
 describe OpenStruct do
 
   describe "making a new OpenStruct object" do
