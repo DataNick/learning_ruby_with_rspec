@@ -91,6 +91,14 @@ describe OpenStruct do
       end
     end
 
+    describe "#to_s" do
+      it "returns a string with a detailed summary of keys and values" do
+        person = OpenStruct.new('name' => 'John Smith', 'age' => 70)
+        string = person.to_s
+        expect(string).to eq("#<OpenStruct name=\"John Smith\", age=70>")
+      end
+    end
+
     describe "#marshal_dump" do
       it "marshal_dump must return a result containing the information necessary for marshal_load to reconstitute the object" do
         data = OpenStruct.new('name' => 'John Smith', 'age' => 70)
