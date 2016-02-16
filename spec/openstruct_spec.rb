@@ -99,6 +99,7 @@ describe OpenStruct do
       end
     end
 
+    # The marshaling library converts collections of Ruby objects into a byte stream, allowing them to be stored outside the currently active script. This data may subsequently be read and the original objects reconstituted.
     describe "#marshal_dump" do
       it "marshal_dump must return a result containing the information necessary for marshal_load to reconstitute the object" do
         data = OpenStruct.new('name' => 'John Smith', 'age' => 70)
