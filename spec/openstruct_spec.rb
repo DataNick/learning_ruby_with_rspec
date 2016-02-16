@@ -81,6 +81,7 @@ describe OpenStruct do
       hash_data = data.hash()
       expect(hash_data.class).to eq(Fixnum)
     end
+  end
 
     describe "#inspect" do
       it "returns a string with a detailed summary of keys and values" do
@@ -90,13 +91,11 @@ describe OpenStruct do
       end
     end
 
-
-
-  end
-
-
-
-
-
+    describe "#marshal_dump" do
+      it "marshal_dump must return a result containing the information necessary for marshal_load to reconstitute the object" do
+        data = OpenStruct.new('name' => 'John Smith', 'age' => 70)
+        expect(data.marshal_dump).to eq({name: 'John Smith', age: 70})
+      end
+    end
 
 end
