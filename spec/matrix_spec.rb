@@ -15,6 +15,11 @@ describe Matrix do
       matrix = Matrix.build(3,4){|row, col| col-row}
       expect(matrix).to eq(Matrix[[0, 1, 2, 3],[-1, 0, 1, 2],[-2, -1, 0, 1]])
     end
+
+    it "creates a 5X5 matrix" do
+      matrix = Matrix.build(5){|row,col| row; col}
+      expect(matrix).to eq(Matrix[[0,1,2,3,4],[0,1,2,3,4],[0,1,2,3,4],[0,1,2,3,4],[0,1,2,3,4]])
+    end
   end
 
   describe "#diagonal" do
