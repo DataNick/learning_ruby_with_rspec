@@ -52,6 +52,14 @@ describe Matrix do
     end
   end
 
+  describe "#identity(n)" do
+    it "creates an n X n identity matrix" do
+      matrix = Matrix.identity(3)
+      expect(matrix).to eq(Matrix[[1, 0, 0], [0, 1, 0], [0, 0, 1]])
+    end
+  end
+
+
 
 
 
