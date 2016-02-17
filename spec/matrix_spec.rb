@@ -22,7 +22,7 @@ describe Matrix do
     end
   end
 
-  describe "#diagonal" do
+  describe "#diagonal" do # matrix having non-zero elements only in the diagonal running from the upper left to lower right
     it "returns a matrix with specific numbers forming a diagonal line" do
       diagonal =  Matrix.diagonal(1,2,3,4)
       expect(diagonal).to eq(Matrix[[1,0,0,0],[0,2,0,0],[0,0,3,0],[0,0,0,4]])
@@ -66,14 +66,14 @@ describe Matrix do
     end
   end
 
-  describe "#identity(n)" do
+  describe "#identity(n)" do # square matrix where all elements of principal diagonal are 1 and other elements are 0; Effect of multiplying a given matrix by identity matrix is to leave identity matrix unchanged
     it "creates an n X n identity matrix" do
       matrix = Matrix.identity(3)
       expect(matrix).to eq(Matrix[[1, 0, 0], [0, 1, 0], [0, 0, 1]])
     end
   end
 
-  describe "#unit(n)" do
+  describe "#unit(n)" do #same as identity matrix
     it "creates an n X n unit matrix" do
       matrix = Matrix.unit(3)
       expect(matrix).to eq(Matrix[[1, 0, 0], [0, 1, 0], [0, 0, 1]])
@@ -87,16 +87,11 @@ describe Matrix do
     end
   end
 
-
-
-
-
-
-
-
-
-
-
-
+  describe "#zero(row_count, column_count = row_count)" do
+    it "creates a zero matrix" do
+      zeroed = Matrix.zero(4,5)
+      expect(zeroed).to eq(Matrix[[ 0, 0, 0, 0, 0 ], [ 0, 0, 0, 0, 0 ], [ 0, 0, 0, 0, 0 ], [ 0, 0, 0, 0, 0 ]])
+    end
+  end
 
 end
