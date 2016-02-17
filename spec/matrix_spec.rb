@@ -50,6 +50,13 @@ describe Matrix do
     end
   end
 
+  describe "#rows(rows)" do
+    it "creates a matrix where rows array of arrays, each of which is a row in the matrix" do
+      rows = Matrix.rows([[1,2,3], [6,7,8]])
+      expect(rows).to eq(Matrix[[1 ,2, 3], [6, 7, 8]])
+    end
+  end
+
   describe "#empty(row_count=0, column_count=0)" do
     it "creates empty matrix of row_count X column_count" do
       a = Matrix.empty(1, 0)
