@@ -30,10 +30,18 @@ describe Matrix do
   end
 
   describe "#column_vector(column)" do
-    it "creates single-column matrix" do
+    it "creates single-column matrix where the values of the columns are those given in column parameter" do
       matrix = Matrix.column_vector([3, 2, 7])
       expect(matrix).to eq(Matrix[[3],[2],[7]])
     end
   end
+
+  describe "#columns(columns)" do
+    it "creates matrix using columns as an array of column vectors" do
+      columns = Matrix.columns([[15, -12], [7, -2]])
+      expect(columns).to eq(Matrix[[15, 7], [-12,-2]])
+    end
+  end
+
 
 end
