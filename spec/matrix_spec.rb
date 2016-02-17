@@ -59,6 +59,13 @@ describe Matrix do
     end
   end
 
+  describe "#unit(n)" do
+    it "creates an n X n unit matrix" do
+      matrix = Matrix.unit(3)
+      expect(matrix).to eq(Matrix[[1, 0, 0], [0, 1, 0], [0, 0, 1]])
+    end
+  end
+
 
 
 
