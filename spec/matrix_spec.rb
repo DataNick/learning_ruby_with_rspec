@@ -80,6 +80,16 @@ describe Matrix do
     end
   end
 
+  describe "#scalar(n, value)" do
+    it "creates and n X n diagonal matrix where each diagonal element is value" do
+      scalar = Matrix.scalar(3, 2)
+      expect(scalar).to eq(Matrix[[2, 0, 0], [0, 2, 0], [0, 0, 2]])
+    end
+  end
+
+
+
+
 
 
 
