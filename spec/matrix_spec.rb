@@ -43,5 +43,21 @@ describe Matrix do
     end
   end
 
+  describe "#empty(row_count=0, column_count=0)" do
+    it "creates empty matrix of row_count X column_count" do
+      a = Matrix.empty(1, 0)
+      b = Matrix.empty(0, 3)
+      result = a * b
+      expect(result).to eq(Matrix[[0, 0, 0]])
+    end
+  end
+
+
+
+
+
+
+
+
 
 end
