@@ -29,4 +29,11 @@ describe Matrix do
     end
   end
 
+  describe "#column_vector(column)" do
+    it "creates single-column matrix" do
+      matrix = Matrix.column_vector([3, 2, 7])
+      expect(matrix).to eq(Matrix[[3],[2],[7]])
+    end
+  end
+
 end
