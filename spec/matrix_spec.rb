@@ -10,6 +10,13 @@ describe Matrix do
     end
   end
 
+  describe "#build(row_count, column_count = row_count)" do
+    it "creates a matrix of size row_count X column_count" do
+      matrix = Matrix.build(3,4){|row, col| col-row}
+      expect(matrix).to eq(Matrix[[0, 1, 2, 3],[-1, 0, 1, 2],[-2, -1, 0, 1]])
+    end
+  end
+
   describe "#diagonal" do
     it "returns a matrix with specific numbers forming a diagonal line" do
       diagonal =  Matrix.diagonal(1,2,3,4)
