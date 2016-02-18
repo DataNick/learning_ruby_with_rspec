@@ -38,6 +38,12 @@ describe Array do
       array = Array.new(4, {})
       expect(array).to eq([{}, {}, {}, {}])
     end
+
+    it "will create a 2 x 3 matrix" do
+      matrix = Array.new(2){Array.new(3,4)} #first array determines how many elements in outer array; second determines number of elements for each array elements and the value of elements
+      expect(matrix).to eq([[4,4,4],[4,4,4]])
+    end
+
   end
 
   describe "#try_convert" do
