@@ -11,6 +11,13 @@ describe Hash do
       expect(number).to eq("The key is 12")
       expect(hash).to eq({"c" => "The key is c", 12 => "The key is 12"})
     end
+
+    it "uses a new hash to count characters" do
+      array = ['T', 'T', 'A', 'R', 'B', 'Y', 'A', 'A', 'R']
+      count = Hash.new(0)
+      array.each{|x| count[x] += 1}
+      expect(count).to eq({'T' => 2, 'A' => 3, 'R' => 2, 'B' => 1, 'Y' => 1 })
+    end
   end
 
   describe "#== [other hash]" do
